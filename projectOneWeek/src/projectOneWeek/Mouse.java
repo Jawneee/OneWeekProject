@@ -10,6 +10,15 @@ import javax.swing.*;
 
 
 public class Mouse {
-
 	
+	
+	
+	
+	
+	public Mouse() {
+		frame = new JFrame("Mouse Maze ");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		
+	}
 }
