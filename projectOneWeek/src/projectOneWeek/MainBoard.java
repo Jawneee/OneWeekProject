@@ -6,6 +6,7 @@ public class MainBoard {
 		
 		Board b = new Board();
 		
+		
 
 	}
 
