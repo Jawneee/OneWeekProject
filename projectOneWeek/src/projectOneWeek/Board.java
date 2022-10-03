@@ -56,6 +56,7 @@ public class Board {
 					
 					if(grid[temp].getName() == "tile") {
 						grid[temp].setBackground(Color.BLACK);
+						System.out.println("I made walls.");
 					}
 					
 				}
