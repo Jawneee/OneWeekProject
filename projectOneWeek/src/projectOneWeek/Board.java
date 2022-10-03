@@ -34,6 +34,7 @@ public class Board {
 		String[] ac = new String[200];
 		mouseButton = new JButton();
 		mouseButton.setBackground(Color.RED);
+		mouseButton.setText("Mouse");
 		mouseButton.addActionListener(new ActionListener() {
 
 			@Override
@@ -50,7 +51,7 @@ public class Board {
 			}
 			
 		});
-		mouseButton.setPreferredSize(new Dimension(25,25));
+		mouseButton.setPreferredSize(new Dimension(100,25));
 		
 		
 		for(int i=0; i<200; i++) {
@@ -92,10 +93,10 @@ public class Board {
 							grid[temp].setName("tile");
 							mousePlaced = false;
 						}
-						System.out.println(mousePlaced);
+						
 					}
 					
-					System.out.println("This space is: " + grid[temp].getName());
+					
 					
 				}
             	
