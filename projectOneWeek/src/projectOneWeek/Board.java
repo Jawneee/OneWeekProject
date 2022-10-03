@@ -17,7 +17,7 @@ public class Board {
 	JButton[] grid;
 	
 	public Board() {
-		
+		//asdasdasdasd
 		
 		frame = new JFrame("Mouse Maze");
 		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
@@ -45,6 +45,7 @@ public class Board {
             grid[i].setBackground(Color.white);
             grid[i].setName("tile");
             panel.add(grid[i], c);
+            System.out.println("Made Grid");
 		}
 		
 		
