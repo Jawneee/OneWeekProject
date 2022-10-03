@@ -3,25 +3,17 @@ package projectOneWeek;
 import java.util.Random;
 
 public class Mouse {
-	private int x;
-	private int [][] mouse = new int [10][10];
-	
+
+	private int x = 1;
+	private int[] mouse = new int[10];
+
 	Mouse(int xNum) {
-		xNum = 1;
+		xNum = x;
 
-		for(int i =0; i<mouse.length; i++) {
+		for (int i = 0; i < mouse.length; i++) {
 
 		}
-	
-		
-		
-		public int up() {
-			
-			return xNum;
-			
-		}
-		
-		
-		
+
 	}
+
 }
