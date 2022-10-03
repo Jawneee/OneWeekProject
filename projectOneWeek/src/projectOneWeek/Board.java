@@ -8,15 +8,15 @@ import java.awt.event.ActionListener;
 
 public class Board {
 	
-	boolean wall = false;
-	
 	JFrame frame;
 	JPanel panel;
 	JLabel label;
 	JButton[] grid;
+	boolean mouseToggle;
+	JButton mouseButton;
 	
 	public Board() {
-		//asdasdasdasd
+		mouseToggle = false;
 		
 		frame = new JFrame("Mouse Maze");
 		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
@@ -27,11 +27,24 @@ public class Board {
 		panel = new JPanel(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
 		
-		grid = new JButton[100];
-		String[] ac = new String[100];
+		grid = new JButton[200];
+		String[] ac = new String[200];
+		mouseButton = new JButton();
+		mouseButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				System.out.println("Hello");
+				
+			}
+			
+		});
+		mouseButton.setPreferredSize(new Dimension(50,50));
+		//panel.add(mouseButton, c); dont add this yet
 		
-		for(int i=0; i<100; i++) {
-            if(i == 10 || i==20 || i==30 || i==40 || i==50 || i==60 || i==70 || i==80 || i==90) {
+		for(int i=0; i<200; i++) {
+            if(i == 20 || i==40 || i==60 || i==80 || i==100 || i==120 || i==140 || i==160 || i==180) {
                 c.gridy = c.gridy + 2;
                 System.out.println("HEllo");
             }
@@ -40,7 +53,7 @@ public class Board {
             ac[i] = get;
             grid[i] = new JButton();
             grid[i].setActionCommand(ac[i]);
-            grid[i].setPreferredSize(new Dimension(50,50));
+            grid[i].setPreferredSize(new Dimension(25,25));
             grid[i].setBackground(Color.white);
             grid[i].setName("tile");
             panel.add(grid[i], c);
@@ -54,10 +67,19 @@ public class Board {
 					
 					temp=Integer.valueOf(e.getActionCommand());
 					
-					if(grid[temp].getName() == "tile") {
-						grid[temp].setBackground(Color.BLACK);
-						System.out.println("I made walls.");
+					if(mouseToggle == false) {
+						if(grid[temp].getName() == "tile") {
+							grid[temp].setBackground(Color.BLACK);
+							grid[temp].setName("wall");
+						}else if(grid[temp].getName() == "wall") {
+							grid[temp].setBackground(Color.WHITE);
+							grid[temp].setName("tile");
+						}
+					}else if(mouseToggle == true) {
+						
 					}
+					
+					System.out.println("This space is: " + grid[temp].getName());
 					
 				}
             	
