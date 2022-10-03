@@ -31,6 +31,23 @@ public class Board {
 		grid = new JButton[100];
 		String[] ac = new String[100];
 		
+		for(int i=0; i<100; i++) {
+            if(i == 10 || i==20 || i==30 || i==40 || i==50 || i==60 || i==70 || i==80 || i==90) {
+                c.gridy = c.gridy + 2;
+                System.out.println("HEllo");
+            }
+			String get;
+            get = String.valueOf(i);
+            ac[i] = get;
+            grid[i] = new JButton();
+            grid[i].setActionCommand(ac[i]);
+            grid[i].setPreferredSize(new Dimension(50,50));
+            grid[i].setBackground(Color.white);
+            grid[i].setName("tile");
+            panel.add(grid[i], c);
+		}
+		
+		
 		frame.setContentPane(panel);
 		frame.setVisible(true);
 		
