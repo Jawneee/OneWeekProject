@@ -15,8 +15,11 @@ public class Board {
 	boolean mouseToggle;
 	JButton mouseButton;
 	
+	boolean mousePlaced;
+	
 	public Board() {
 		mouseToggle = false;
+		mousePlaced = false;
 		
 		frame = new JFrame("Mouse Maze");
 		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
@@ -30,18 +33,25 @@ public class Board {
 		grid = new JButton[200];
 		String[] ac = new String[200];
 		mouseButton = new JButton();
+		mouseButton.setBackground(Color.RED);
 		mouseButton.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				System.out.println("Hello");
+				if(mouseToggle) {
+					mouseButton.setBackground(Color.RED);
+					mouseToggle = false;
+				}else {
+					mouseButton.setBackground(Color.GREEN);
+					mouseToggle = true;
+				}
 				
 			}
 			
 		});
-		mouseButton.setPreferredSize(new Dimension(50,50));
-		//panel.add(mouseButton, c); dont add this yet
+		mouseButton.setPreferredSize(new Dimension(25,25));
+		
 		
 		for(int i=0; i<200; i++) {
             if(i == 20 || i==40 || i==60 || i==80 || i==100 || i==120 || i==140 || i==160 || i==180 || i == 200) {
@@ -63,8 +73,7 @@ public class Board {
 				public void actionPerformed(ActionEvent e) {
 					int temp;
 					
-					temp=Integer.valueOf(e.getActionCommand());
-					
+					temp=Integer.valueOf(e.getActionCommand());					
 					if(mouseToggle == false) {
 						if(grid[temp].getName() == "tile") {
 							grid[temp].setBackground(Color.BLACK);
@@ -73,8 +82,17 @@ public class Board {
 							grid[temp].setBackground(Color.WHITE);
 							grid[temp].setName("tile");
 						}
-					}else if(mouseToggle == true) {
-						
+					}else {
+						if(grid[temp].getName() == "tile" && mousePlaced == false) {
+							grid[temp].setBackground(Color.ORANGE);
+							grid[temp].setName("mouse");
+							mousePlaced = true;
+						}else if(grid[temp].getName() == "mouse" && mousePlaced) {
+							grid[temp].setBackground(Color.WHITE);
+							grid[temp].setName("tile");
+							mousePlaced = false;
+						}
+						System.out.println(mousePlaced);
 					}
 					
 					System.out.println("This space is: " + grid[temp].getName());
@@ -91,7 +109,7 @@ public class Board {
 		
 		
 		
-		
+		panel.add(mouseButton, c);
 		frame.setContentPane(panel);
 		frame.setVisible(true);
 		
