@@ -44,9 +44,8 @@ public class Board {
 		//panel.add(mouseButton, c); dont add this yet
 		
 		for(int i=0; i<200; i++) {
-            if(i == 20 || i==40 || i==60 || i==80 || i==100 || i==120 || i==140 || i==160 || i==180) {
+            if(i == 20 || i==40 || i==60 || i==80 || i==100 || i==120 || i==140 || i==160 || i==180 || i == 200) {
                 c.gridy = c.gridy + 2;
-                System.out.println("HEllo");
             }
 			String get;
             get = String.valueOf(i);
@@ -57,7 +56,6 @@ public class Board {
             grid[i].setBackground(Color.white);
             grid[i].setName("tile");
             panel.add(grid[i], c);
-            System.out.println("Made Grid");
             
             
             grid[i].addActionListener(new ActionListener() {
