@@ -8,11 +8,13 @@ public class Mouse {
 	private int[] mouse = new int[10];
 
 	Mouse(int xNum) {
+
 		xNum = x;
 
 		for (int i = 0; i < mouse.length; i++) {
-
+			
 		}
+
 
 	}
 
