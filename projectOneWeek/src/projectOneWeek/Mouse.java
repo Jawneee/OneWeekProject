@@ -12,6 +12,7 @@ public class Mouse {
 		for(int i =0; i<mouse.length(); i++) {
 			for(int j = 0; j<mouse[0].length();j++) {
 				mouse[i][j]=0;
+				
 			}
 		}
 	
