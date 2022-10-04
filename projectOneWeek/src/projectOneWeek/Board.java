@@ -30,8 +30,8 @@ public class Board {
 		panel = new JPanel(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
 		
-		grid = new JButton[200];
-		String[] ac = new String[200];
+		grid = new JButton[400];
+		String[] ac = new String[400];
 		mouseButton = new JButton();
 		mouseButton.setBackground(Color.RED);
 		mouseButton.setText("Mouse");
