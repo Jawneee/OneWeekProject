@@ -17,6 +17,7 @@ public class Board {
 	boolean mouseToggle;
 	JButton mouseButton;
 	JButton clear;
+	JButton preset1;
 	
 	boolean mousePlaced;
 	
@@ -35,6 +36,10 @@ public class Board {
 		
 		grid = new JButton[400];
 		String[] ac = new String[400];
+		preset1 = new JButton();
+		preset1.setBackground(Color.gray);
+		preset1.setText("Preset1");
+		
 		clear=new JButton();
 		clear.setBackground(Color.lightGray);
 		clear.setText("Clear");
@@ -68,6 +73,15 @@ public class Board {
 			
 		});
 		
+		preset1.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				preset1();
+			}
+			
+		});
 		
 		for(int i=0; i<400; i++) {
             if(i == 20 || i==40 || i==60 || i==80 || i==100 || i==120 || i==140 || i==160 || i==180 || i == 200|| i==220||i==240||i==260||i==280||i==300||i==320||i==340||i==360||i==380) {
