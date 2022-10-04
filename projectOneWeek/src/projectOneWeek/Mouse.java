@@ -7,12 +7,15 @@ public class Mouse {
 	public int x = 1;
 	
 
-	Mouse(int xNum) {
+	public Mouse() {
 
+<<<<<<< HEAD
 		xNum = x;
 
 
 
+=======
+>>>>>>> branch 'main' of https://github.com/Jawneee/OneWeekProject.git
 	}
 	
 	public int up() {
