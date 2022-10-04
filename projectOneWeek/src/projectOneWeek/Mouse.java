@@ -6,6 +6,8 @@ public class Mouse {
 
 	public Mouse() {
 
+
+
 	}
 
 	public int up() {

@@ -4,9 +4,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class Board {
+	
 	
 	Mouse m = new Mouse();
 	
@@ -141,7 +144,7 @@ public class Board {
 		
 		
 		
-		
+		panel.add(preset1);
 		panel.add(clear);
 		panel.add(mouseButton, c);
 		frame.setContentPane(panel);
