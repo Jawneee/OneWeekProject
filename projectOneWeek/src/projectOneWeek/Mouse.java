@@ -20,5 +20,10 @@ public class Mouse {
 
 
 	}
+	
+	public int up() {
+		
+	}
 
 }
+
