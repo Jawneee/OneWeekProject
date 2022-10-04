@@ -1,18 +1,15 @@
 package projectOneWeek;
 
-import java.util.Random;
-
 public class Mouse {
 
 	private int x = 1;
-	private int[] mouse = new int[10];
+
 
 	public Mouse() {
 
-
-
 	}
 	
+
 	public int up() {
 		x=-19;
 		return x;
