@@ -2,7 +2,7 @@ package projectOneWeek;
 
 public class Mouse {
 
-	private int x = 1;
+	public int x = 1;
 
 
 	Mouse(int xNum) {
