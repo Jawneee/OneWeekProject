@@ -1,10 +1,31 @@
 package projectOneWeek;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class MainBoard {
 
 	public static void main(String[] args) {
 		
 		Board b = new Board();
+		
+		Timer timer = new Timer();
+		TimerTask task = new TimerTask() {
+			int num;
+			@Override
+			public void run() {
+				num++;
+				System.out.println("Mouse move " + num);
+				if(num<0) {
+					timer.cancel(); //cancel timer, will change num to finish once created so timer stops after mouse finishes maze
+				}
+				
+				
+			}
+			
+		};
+		
+		timer.schedule(task, 0 , 1000);
 	}
 
 }
