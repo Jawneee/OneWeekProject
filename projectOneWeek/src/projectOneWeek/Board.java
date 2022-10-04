@@ -92,6 +92,8 @@ public class Board {
 				public void actionPerformed(ActionEvent e) {
 					int temp;
 					
+					preset1();
+					
 					temp=Integer.valueOf(e.getActionCommand());					
 					if(mouseToggle == false) {
 						if(grid[temp].getName() == "tile") {
@@ -140,9 +142,13 @@ public class Board {
 		for(int i=0;i<grid.length;i++) {
 			grid[i].setName("tile");
 			grid[i].setBackground(Color.white);
-			
+			mousePlaced=false;
 		}
 		
+	}
+	public void preset1() {
+		grid[0].setName("wall");
+		grid[0].setBackground(Color.BLACK);
 	}
 	
 
