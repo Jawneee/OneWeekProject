@@ -5,8 +5,6 @@ public class Mouse {
 	public int x = 1;
 
 	public Mouse() {
-		
-
 
 	}
 

@@ -137,7 +137,7 @@ public class Board {
 		for(int i=0;i<grid.length;i++) {
 			grid[i].setName("tile");
 			grid[i].setBackground(Color.white);
-			
+			mousePlaced=false;
 		}
 		
 	}
