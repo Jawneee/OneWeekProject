@@ -1,23 +1,25 @@
 package projectOneWeek;
 
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 
 public class Board {
-	
-	boolean wall = false;
 	
 	JFrame frame;
 	JPanel panel;
 	JLabel label;
 	JButton[] grid;
+	boolean mouseToggle;
+	JButton mouseButton;
+	
+	boolean mousePlaced;
 	
 	public Board() {
-		//asdasdasdasd
+		mouseToggle = false;
+		mousePlaced = false;
 		
 		frame = new JFrame("Mouse Maze");
 		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
@@ -28,27 +30,87 @@ public class Board {
 		panel = new JPanel(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
 		
-		grid = new JButton[100];
-		String[] ac = new String[100];
+		grid = new JButton[200];
+		String[] ac = new String[200];
+		mouseButton = new JButton();
+		mouseButton.setBackground(Color.RED);
+		mouseButton.setText("Mouse");
+		mouseButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				if(mouseToggle) {
+					mouseButton.setBackground(Color.RED);
+					mouseToggle = false;
+				}else {
+					mouseButton.setBackground(Color.GREEN);
+					mouseToggle = true;
+				}
+				
+			}
+			
+		});
+		mouseButton.setPreferredSize(new Dimension(100,25));
 		
-		for(int i=0; i<100; i++) {
-            if(i == 10 || i==20 || i==30 || i==40 || i==50 || i==60 || i==70 || i==80 || i==90) {
+		
+		for(int i=0; i<200; i++) {
+            if(i == 20 || i==40 || i==60 || i==80 || i==100 || i==120 || i==140 || i==160 || i==180 || i == 200) {
                 c.gridy = c.gridy + 2;
-                System.out.println("HEllo");
             }
 			String get;
             get = String.valueOf(i);
             ac[i] = get;
             grid[i] = new JButton();
             grid[i].setActionCommand(ac[i]);
-            grid[i].setPreferredSize(new Dimension(50,50));
+            grid[i].setPreferredSize(new Dimension(25,25));
             grid[i].setBackground(Color.white);
             grid[i].setName("tile");
             panel.add(grid[i], c);
-            System.out.println("Made Grid");
+            
+            
+            grid[i].addActionListener(new ActionListener() {
+
+				public void actionPerformed(ActionEvent e) {
+					int temp;
+					
+					temp=Integer.valueOf(e.getActionCommand());					
+					if(mouseToggle == false) {
+						if(grid[temp].getName() == "tile") {
+							grid[temp].setBackground(Color.BLACK);
+							grid[temp].setName("wall");
+						}else if(grid[temp].getName() == "wall") {
+							grid[temp].setBackground(Color.WHITE);
+							grid[temp].setName("tile");
+						}
+					}else {
+						if(grid[temp].getName() == "tile" && mousePlaced == false) {
+							grid[temp].setBackground(Color.ORANGE);
+							grid[temp].setName("mouse");
+							mousePlaced = true;
+						}else if(grid[temp].getName() == "mouse" && mousePlaced) {
+							grid[temp].setBackground(Color.WHITE);
+							grid[temp].setName("tile");
+							mousePlaced = false;
+						}
+						
+					}
+					
+					
+					
+				}
+            	
+            	
+			});
+            
 		}
 		
 		
+		
+		
+		
+		
+		panel.add(mouseButton, c);
 		frame.setContentPane(panel);
 		frame.setVisible(true);
 		
