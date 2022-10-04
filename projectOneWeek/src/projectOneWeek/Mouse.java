@@ -12,6 +12,8 @@ public class Mouse {
 		xNum = x;
 
 		for (int i = 0; i < mouse.length; i++) {
+			mouse[i]=0;
+			
 			
 		}
 
