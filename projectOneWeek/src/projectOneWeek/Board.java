@@ -54,8 +54,8 @@ public class Board {
 		mouseButton.setPreferredSize(new Dimension(100,25));
 		
 		
-		for(int i=0; i<200; i++) {
-            if(i == 20 || i==40 || i==60 || i==80 || i==100 || i==120 || i==140 || i==160 || i==180 || i == 200) {
+		for(int i=0; i<400; i++) {
+            if(i == 20 || i==40 || i==60 || i==80 || i==100 || i==120 || i==140 || i==160 || i==180 || i == 200|| i==220||i==240||i==260||i==280||i==300||i==320||i==340||i==360||i==380||i==400) {
                 c.gridy = c.gridy + 2;
             }
 			String get;
