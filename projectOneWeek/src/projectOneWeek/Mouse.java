@@ -9,13 +9,12 @@ public class Mouse {
 
 	public Mouse() {
 
-<<<<<<< HEAD
-		xNum = x;
 
 
 
-=======
->>>>>>> branch 'main' of https://github.com/Jawneee/OneWeekProject.git
+
+
+
 	}
 	
 	public int up() {
