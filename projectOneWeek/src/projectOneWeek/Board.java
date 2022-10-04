@@ -14,6 +14,7 @@ public class Board {
 	JButton[] grid;
 	boolean mouseToggle;
 	JButton mouseButton;
+	JButton clear;
 	
 	boolean mousePlaced;
 	
@@ -32,6 +33,9 @@ public class Board {
 		
 		grid = new JButton[400];
 		String[] ac = new String[400];
+		clear=new JButton();
+		clear.setBackground(Color.lightGray);
+		clear.setText("Clear");
 		mouseButton = new JButton();
 		mouseButton.setBackground(Color.RED);
 		mouseButton.setText("Mouse");
@@ -51,11 +55,20 @@ public class Board {
 			}
 			
 		});
-		mouseButton.setPreferredSize(new Dimension(100,25));
+		
+		clear.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				clearBoard();
+			}
+			
+		});
 		
 		
 		for(int i=0; i<400; i++) {
-            if(i == 20 || i==40 || i==60 || i==80 || i==100 || i==120 || i==140 || i==160 || i==180 || i == 200|| i==220||i==240||i==260||i==280||i==300||i==320||i==340||i==360||i==380||i==400) {
+            if(i == 20 || i==40 || i==60 || i==80 || i==100 || i==120 || i==140 || i==160 || i==180 || i == 200|| i==220||i==240||i==260||i==280||i==300||i==320||i==340||i==360||i==380) {
                 c.gridy = c.gridy + 2;
             }
 			String get;
@@ -79,9 +92,11 @@ public class Board {
 						if(grid[temp].getName() == "tile") {
 							grid[temp].setBackground(Color.BLACK);
 							grid[temp].setName("wall");
+							System.out.println("Index is: " + grid[temp]);
 						}else if(grid[temp].getName() == "wall") {
 							grid[temp].setBackground(Color.WHITE);
 							grid[temp].setName("tile");
+							System.out.println("Index is: " + grid[temp]);
 						}
 					}else {
 						if(grid[temp].getName() == "tile" && mousePlaced == false) {
@@ -109,12 +124,21 @@ public class Board {
 		
 		
 		
-		
+		panel.add(clear);
 		panel.add(mouseButton, c);
 		frame.setContentPane(panel);
 		frame.setVisible(true);
 		
 		
 	}
+	public void clearBoard() {
+		for(int i=0;i<grid.length;i++) {
+			grid[i].setName("tile");
+			grid[i].setBackground(Color.white);
+			
+		}
+		
+	}
+	
 
 }
