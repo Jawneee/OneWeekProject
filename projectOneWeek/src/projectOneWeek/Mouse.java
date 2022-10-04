@@ -15,6 +15,7 @@ public class Mouse {
 			mouse[i]=0;
 			
 			
+			
 		}
 
 
