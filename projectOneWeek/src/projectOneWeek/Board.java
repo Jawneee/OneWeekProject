@@ -160,6 +160,7 @@ public class Board {
 				grid[mousePos+1].setName("mouse");
 				grid[mousePos].setBackground(Color.gray);
 				mousePos = mousePos+m.right();
+				System.out.println("Move Right");
 			}else if(grid[mousePos+m.left()].getName() == "tile" && grid[mousePos-1].getBackground() != Color.gray) {
 				grid[mousePos].setBackground(Color.WHITE);
 				grid[mousePos].setName("tile");
@@ -167,6 +168,7 @@ public class Board {
 				grid[mousePos+m.left()].setName("mouse");
 				grid[mousePos].setBackground(Color.gray);
 				mousePos = mousePos+m.left();
+				System.out.println("Move Left");
 			}
 		}
 	}
