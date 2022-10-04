@@ -5,9 +5,7 @@ public class Mouse {
 	public int x = 1;
 
 
-	Mouse(int xNum) {
-
-		xNum = x;
+	public Mouse() {
 
 	}
 	

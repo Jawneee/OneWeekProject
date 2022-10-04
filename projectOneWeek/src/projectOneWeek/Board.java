@@ -8,6 +8,8 @@ import java.awt.event.ActionListener;
 
 public class Board {
 	
+	Mouse m = new Mouse();
+	
 	JFrame frame;
 	JPanel panel;
 	JLabel label;
