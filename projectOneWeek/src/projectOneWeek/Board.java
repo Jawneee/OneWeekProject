@@ -11,6 +11,7 @@ public class Board {
 	
 	
 	Mouse m = new Mouse();
+	int mousePos;
 	
 	JFrame frame;
 	JPanel panel;
@@ -105,8 +106,6 @@ public class Board {
 				public void actionPerformed(ActionEvent e) {
 					int temp;
 					
-					preset1();
-					
 					temp=Integer.valueOf(e.getActionCommand());					
 					if(mouseToggle == false) {
 						if(grid[temp].getName() == "tile") {
@@ -123,6 +122,7 @@ public class Board {
 							grid[temp].setBackground(Color.ORANGE);
 							grid[temp].setName("mouse");
 							mousePlaced = true;
+							mousePos = temp;
 						}else if(grid[temp].getName() == "mouse" && mousePlaced) {
 							grid[temp].setBackground(Color.WHITE);
 							grid[temp].setName("tile");
@@ -162,6 +162,43 @@ public class Board {
 	public void preset1() {
 		grid[0].setName("wall");
 		grid[0].setBackground(Color.BLACK);
+	}
+	public void moveMouse() {
+		
+		
+		if(mousePlaced) {
+			if(grid[mousePos+1].getName() == "tile" && grid[mousePos+1].getBackground() != Color.gray) {
+				grid[mousePos].setBackground(Color.WHITE);
+				grid[mousePos].setName("tile");
+				grid[mousePos+1].setBackground(Color.ORANGE);
+				grid[mousePos+1].setName("mouse");
+				grid[mousePos].setBackground(Color.gray);
+				mousePos = mousePos+m.right();
+				System.out.println("Move Right");
+			}else if(grid[mousePos-1].getName() == "tile" && grid[mousePos-1].getBackground() != Color.gray) {
+				grid[mousePos].setBackground(Color.WHITE);
+				grid[mousePos].setName("tile");
+				grid[mousePos+m.left()].setBackground(Color.ORANGE);
+				grid[mousePos+m.left()].setName("mouse");
+				grid[mousePos].setBackground(Color.gray);
+				mousePos = mousePos+m.left();
+				System.out.println("Move Left");
+			}else if(grid[mousePos-20].getName() == "tile" && grid[mousePos-20].getBackground() != Color.gray) {
+				grid[mousePos].setBackground(Color.WHITE);
+				grid[mousePos].setName("tile");
+				grid[mousePos+m.up()].setBackground(Color.ORANGE);
+				grid[mousePos+m.up()].setName("mouse");
+				grid[mousePos].setBackground(Color.gray);
+				mousePos = mousePos+m.up();
+			}else if(grid[mousePos+20].getName() == "tile" && grid[mousePos+20].getBackground() != Color.gray) {
+				grid[mousePos].setBackground(Color.WHITE);
+				grid[mousePos].setName("tile");
+				grid[mousePos+m.down()].setBackground(Color.ORANGE);
+				grid[mousePos+m.down()].setName("mouse");
+				grid[mousePos].setBackground(Color.gray);
+				mousePos = mousePos+m.down();
+			}
+		}
 	}
 	
 
