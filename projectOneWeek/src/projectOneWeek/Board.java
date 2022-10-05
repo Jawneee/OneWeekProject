@@ -114,7 +114,7 @@ public class Board {
 							grid[temp].setBackground(Color.BLACK);
 							grid[temp].setName("wall");
 							System.out.println("grid["+temp+"].setBackground(Color.BLACK);");
-							
+							System.out.println("grid["+temp+"].setName(\"wall\");");
 						}else if(grid[temp].getName() == "wall") {
 							grid[temp].setBackground(Color.WHITE);
 							grid[temp].setName("tile");
