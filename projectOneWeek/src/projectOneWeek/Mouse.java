@@ -1,16 +1,15 @@
 package projectOneWeek;
 
-
-
 public class Mouse {
 
 	public int x = 1;
-	
 
 	public Mouse() {
 
 
+
 	}
+
 	
 	public int up() {
 		x=-20;
@@ -34,4 +33,5 @@ public class Mouse {
 	
 	
 }
+
 

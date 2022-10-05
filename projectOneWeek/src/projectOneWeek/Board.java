@@ -20,6 +20,7 @@ public class Board {
 	boolean mouseToggle;
 	JButton mouseButton;
 	JButton clear;
+	JButton preset1;
 	
 	boolean mousePlaced;
 	
@@ -38,6 +39,10 @@ public class Board {
 		
 		grid = new JButton[400];
 		String[] ac = new String[400];
+		preset1 = new JButton();
+		preset1.setBackground(Color.gray);
+		preset1.setText("Preset1");
+		
 		clear=new JButton();
 		clear.setBackground(Color.lightGray);
 		clear.setText("Clear");
@@ -71,6 +76,15 @@ public class Board {
 			
 		});
 		
+		preset1.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				preset1();
+			}
+			
+		});
 		
 		for(int i=0; i<400; i++) {
             if(i == 20 || i==40 || i==60 || i==80 || i==100 || i==120 || i==140 || i==160 || i==180 || i == 200|| i==220||i==240||i==260||i==280||i==300||i==320||i==340||i==360||i==380) {
@@ -80,6 +94,7 @@ public class Board {
             get = String.valueOf(i);
             ac[i] = get;
             grid[i] = new JButton();
+
             grid[i].setActionCommand(ac[i]);
             grid[i].setPreferredSize(new Dimension(25,25));
             grid[i].setBackground(Color.white);
@@ -92,16 +107,15 @@ public class Board {
 				public void actionPerformed(ActionEvent e) {
 					int temp;
 					
-					temp=Integer.valueOf(e.getActionCommand());					
+					temp=Integer.valueOf(e.getActionCommand());	
+					System.out.println("grid["+temp+"].setBackground(Color.BLACK);");
 					if(mouseToggle == false) {
 						if(grid[temp].getName() == "tile") {
 							grid[temp].setBackground(Color.BLACK);
 							grid[temp].setName("wall");
-							System.out.println("Index is: " + grid[temp]);
 						}else if(grid[temp].getName() == "wall") {
 							grid[temp].setBackground(Color.WHITE);
 							grid[temp].setName("tile");
-							System.out.println("Index is: " + grid[temp]);
 						}
 					}else {
 						if(grid[temp].getName() == "tile" && mousePlaced == false) {
@@ -129,7 +143,7 @@ public class Board {
 		
 		
 		
-		
+		panel.add(preset1);
 		panel.add(clear);
 		panel.add(mouseButton, c);
 		frame.setContentPane(panel);
@@ -146,8 +160,8 @@ public class Board {
 		
 	}
 	public void preset1() {
-		grid[0].setName("wall");
-		grid[0].setBackground(Color.BLACK);
+		
+		
 	}
 	public void preset2() {
 		
