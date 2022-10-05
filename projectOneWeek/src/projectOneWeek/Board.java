@@ -161,7 +161,7 @@ public class Board {
 				grid[mousePos].setBackground(Color.gray);
 				mousePos = mousePos+m.right();
 				System.out.println("Move Right");
-			}else if(grid[mousePos+m.left()].getName() == "tile" && grid[mousePos-1].getBackground() != Color.gray) {
+			}else if(grid[mousePos-1].getName() == "tile" && grid[mousePos-1].getBackground() != Color.gray) {
 				grid[mousePos].setBackground(Color.WHITE);
 				grid[mousePos].setName("tile");
 				grid[mousePos+m.left()].setBackground(Color.ORANGE);
@@ -169,6 +169,20 @@ public class Board {
 				grid[mousePos].setBackground(Color.gray);
 				mousePos = mousePos+m.left();
 				System.out.println("Move Left");
+			}else if(grid[mousePos-20].getName() == "tile" && grid[mousePos-20].getBackground() != Color.gray) {
+				grid[mousePos].setBackground(Color.WHITE);
+				grid[mousePos].setName("tile");
+				grid[mousePos+m.up()].setBackground(Color.ORANGE);
+				grid[mousePos+m.up()].setName("mouse");
+				grid[mousePos].setBackground(Color.gray);
+				mousePos = mousePos+m.up();
+			}else if(grid[mousePos+20].getName() == "tile" && grid[mousePos+20].getBackground() != Color.gray) {
+				grid[mousePos].setBackground(Color.WHITE);
+				grid[mousePos].setName("tile");
+				grid[mousePos+m.down()].setBackground(Color.ORANGE);
+				grid[mousePos+m.down()].setName("mouse");
+				grid[mousePos].setBackground(Color.gray);
+				mousePos = mousePos+m.down();
 			}
 		}
 	}

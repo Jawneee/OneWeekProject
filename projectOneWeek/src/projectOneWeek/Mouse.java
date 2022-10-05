@@ -13,12 +13,12 @@ public class Mouse {
 	}
 	
 	public int up() {
-		x=-19;
+		x=-20;
 		return x;
 	}
 	
 	public int down() {
-		x=19;
+		x=20;
 		return x;
 	}
 	
