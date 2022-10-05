@@ -254,14 +254,13 @@ public class Board {
 		grid[387].setBackground(Color.BLACK);
 
 	}
+	
 
 	public void preset2() {
-
+		
 	}
 
-	public void preset2() {
-
-	}
+	
 
 	public void moveMouse() {
 
