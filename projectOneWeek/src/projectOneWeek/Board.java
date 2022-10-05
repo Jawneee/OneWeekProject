@@ -94,6 +94,7 @@ public class Board {
             get = String.valueOf(i);
             ac[i] = get;
             grid[i] = new JButton();
+
             grid[i].setActionCommand(ac[i]);
             grid[i].setPreferredSize(new Dimension(25,25));
             grid[i].setBackground(Color.white);
@@ -106,16 +107,15 @@ public class Board {
 				public void actionPerformed(ActionEvent e) {
 					int temp;
 					
-					temp=Integer.valueOf(e.getActionCommand());					
+					temp=Integer.valueOf(e.getActionCommand());	
+					System.out.println("grid["+temp+"].setBackground(Color.BLACK);");
 					if(mouseToggle == false) {
 						if(grid[temp].getName() == "tile") {
 							grid[temp].setBackground(Color.BLACK);
 							grid[temp].setName("wall");
-							System.out.println("Index is: " + grid[temp]);
 						}else if(grid[temp].getName() == "wall") {
 							grid[temp].setBackground(Color.WHITE);
 							grid[temp].setName("tile");
-							System.out.println("Index is: " + grid[temp]);
 						}
 					}else {
 						if(grid[temp].getName() == "tile" && mousePlaced == false) {
