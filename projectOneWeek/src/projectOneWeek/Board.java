@@ -125,7 +125,6 @@ public class Board {
 						if(grid[temp].getName() == "tile" && mousePlaced == false) {
 							grid[temp].setBackground(Color.ORANGE);
 							grid[temp].setName("mouse");
-							
 							mousePlaced = true;
 							mousePos = temp;
 						}else if(grid[temp].getName() == "mouse" && mousePlaced) {
