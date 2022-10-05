@@ -108,14 +108,15 @@ public class Board {
 					int temp;
 					
 					temp=Integer.valueOf(e.getActionCommand());	
-					System.out.println("grid["+temp+"].setBackground(Color.BLACK);");
 					if(mouseToggle == false) {
 						if(grid[temp].getName() == "tile") {
 							grid[temp].setBackground(Color.BLACK);
 							grid[temp].setName("wall");
+							System.out.println("grid["+temp+"].setBackground(Color.BLACK);");
 						}else if(grid[temp].getName() == "wall") {
 							grid[temp].setBackground(Color.WHITE);
 							grid[temp].setName("tile");
+							System.out.println("grid["+temp+"].setBackground(Color.WHITE);");
 						}
 					}else {
 						if(grid[temp].getName() == "tile" && mousePlaced == false) {
@@ -160,7 +161,88 @@ public class Board {
 		
 	}
 	public void preset1() {
-		
+		grid[382].setBackground(Color.BLACK);
+		grid[362].setBackground(Color.BLACK);
+		grid[342].setBackground(Color.BLACK);
+		grid[322].setBackground(Color.BLACK);
+		grid[302].setBackground(Color.BLACK);
+		grid[303].setBackground(Color.BLACK);
+		grid[304].setBackground(Color.BLACK);
+		grid[384].setBackground(Color.BLACK);
+		grid[364].setBackground(Color.BLACK);
+		grid[344].setBackground(Color.BLACK);
+		grid[345].setBackground(Color.BLACK);
+		grid[346].setBackground(Color.BLACK);
+		grid[347].setBackground(Color.BLACK);
+		grid[305].setBackground(Color.BLACK);
+		grid[306].setBackground(Color.BLACK);
+		grid[307].setBackground(Color.BLACK);
+		grid[348].setBackground(Color.BLACK);
+		grid[349].setBackground(Color.BLACK);
+		grid[350].setBackground(Color.BLACK);
+		grid[330].setBackground(Color.BLACK);
+		grid[310].setBackground(Color.BLACK);
+		grid[308].setBackground(Color.BLACK);
+		grid[288].setBackground(Color.BLACK);
+		grid[290].setBackground(Color.BLACK);
+		grid[270].setBackground(Color.BLACK);
+		grid[250].setBackground(Color.BLACK);
+		grid[249].setBackground(Color.BLACK);
+		grid[248].setBackground(Color.BLACK);
+		grid[248].setBackground(Color.BLACK);
+		grid[247].setBackground(Color.BLACK);
+		grid[248].setBackground(Color.BLACK);
+		grid[246].setBackground(Color.BLACK);
+		grid[244].setBackground(Color.BLACK);
+		grid[245].setBackground(Color.BLACK);
+		grid[287].setBackground(Color.BLACK);
+		grid[286].setBackground(Color.BLACK);
+		grid[285].setBackground(Color.BLACK);
+		grid[284].setBackground(Color.BLACK);
+		grid[283].setBackground(Color.BLACK);
+		grid[282].setBackground(Color.BLACK);
+		grid[262].setBackground(Color.BLACK);
+		grid[242].setBackground(Color.BLACK);
+		grid[222].setBackground(Color.BLACK);
+		grid[202].setBackground(Color.BLACK);
+		grid[182].setBackground(Color.BLACK);
+		grid[183].setBackground(Color.BLACK);
+		grid[183].setBackground(Color.BLACK);
+		grid[182].setBackground(Color.BLACK);
+		grid[203].setBackground(Color.BLACK);
+		grid[204].setBackground(Color.BLACK);
+		grid[205].setBackground(Color.BLACK);
+		grid[206].setBackground(Color.BLACK);
+		grid[207].setBackground(Color.BLACK);
+		grid[208].setBackground(Color.BLACK);
+		grid[209].setBackground(Color.BLACK);
+		grid[210].setBackground(Color.BLACK);
+		grid[210].setBackground(Color.BLACK);
+		grid[210].setBackground(Color.BLACK);
+		grid[211].setBackground(Color.BLACK);
+		grid[212].setBackground(Color.BLACK);
+		grid[232].setBackground(Color.BLACK);
+		grid[252].setBackground(Color.BLACK);
+		grid[272].setBackground(Color.BLACK);
+		grid[292].setBackground(Color.BLACK);
+		grid[312].setBackground(Color.BLACK);
+		grid[332].setBackground(Color.BLACK);
+		grid[352].setBackground(Color.BLACK);
+		grid[372].setBackground(Color.BLACK);
+		grid[392].setBackground(Color.BLACK);
+		grid[391].setBackground(Color.BLACK);
+		grid[390].setBackground(Color.BLACK);
+		grid[389].setBackground(Color.BLACK);
+		grid[389].setBackground(Color.BLACK);
+		grid[388].setBackground(Color.BLACK);
+		grid[389].setBackground(Color.BLACK);
+		grid[388].setBackground(Color.BLACK);
+		grid[387].setBackground(Color.BLACK);
+		grid[388].setBackground(Color.BLACK);
+		grid[387].setBackground(Color.BLACK);
+		grid[386].setBackground(Color.BLACK);
+		grid[387].setBackground(Color.BLACK);
+
 		
 	}
 	public void preset2() {

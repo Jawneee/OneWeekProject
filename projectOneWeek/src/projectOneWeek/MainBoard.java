@@ -15,10 +15,9 @@ public class MainBoard {
 			@Override
 			public void run() {
 				num++;
-<<<<<<< HEAD
+
 				
-=======
->>>>>>> branch 'main' of https://github.com/Jawneee/OneWeekProject.git
+
 				b.moveMouse();
 				if(num<0) {
 					timer.cancel(); //cancel timer, will change num to finish once created so timer stops after mouse finishes maze
