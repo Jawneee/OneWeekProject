@@ -149,6 +149,9 @@ public class Board {
 		grid[0].setName("wall");
 		grid[0].setBackground(Color.BLACK);
 	}
+	public void preset2() {
+		
+	}
 	public void moveMouse() {
 		
 		
