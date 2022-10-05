@@ -8,6 +8,8 @@ import java.awt.event.ActionListener;
 public class Board {
 
 	String a = "\"\"";
+	
+	
 
 	Mouse m = new Mouse();
 	int mousePos;
@@ -41,7 +43,7 @@ public class Board {
 		preset1 = new JButton();
 		preset1.setBackground(Color.gray);
 		preset1.setText("Preset1");
-
+		
 		preset2 = new JButton();
 		preset2.setBackground(Color.gray);
 		preset2.setText("Preset2");
@@ -84,10 +86,19 @@ public class Board {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				preset2();
-
+				preset1();
+				
 			}
 
+		});
+		preset2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				preset2();
+			}
+			
 		});
 
 		for (int i = 0; i < 400; i++) {
@@ -112,77 +123,48 @@ public class Board {
 				public void actionPerformed(ActionEvent e) {
 					int temp;
 
+
 					temp = Integer.valueOf(e.getActionCommand());
 					System.out.println("grid[" + temp + "].setBackground(Color.BLACK);");
 					if (mouseToggle == false) {
 						if (grid[temp].getName() == "tile") {
 
-							temp = Integer.valueOf(e.getActionCommand());
-							if (mouseToggle == false) {
-								if (grid[temp].getName() == "tile") {
+					
+					temp=Integer.valueOf(e.getActionCommand());	
+					if(mouseToggle == false) {
+						if(grid[temp].getName() == "tile") {
 
-									grid[temp].setBackground(Color.BLACK);
-									grid[temp].setName("wall");
+							grid[temp].setBackground(Color.BLACK);
+							grid[temp].setName("wall");
 
-								} else if (grid[temp].getName() == "wall") {
+						} else if (grid[temp].getName() == "wall") {
 
-									System.out.println("grid[" + temp + "].setBackground(Color.BLACK);");
-									System.out.println("grid[" + temp + "].setName(\"wall\");");
-								} else if (grid[temp].getName() == "wall") {
+							System.out.println("grid["+temp+"].setBackground(Color.BLACK);");
+							System.out.println("grid["+temp+"].setName(\"wall\");");
+						}else if(grid[temp].getName() == "wall") {
 
-									grid[temp].setBackground(Color.WHITE);
-									grid[temp].setName("tile");
-									System.out.println("grid[" + temp + "].setBackground(Color.WHITE);");
-									System.out.println("grid[" + temp + "].setName(\"tile\");");
-								}
-							} else {
-								if (grid[temp].getName() == "tile" && mousePlaced == false) {
-									grid[temp].setBackground(Color.ORANGE);
-									grid[temp].setName("mouse");
-									mousePlaced = true;
-									mousePos = temp;
-								} else if (grid[temp].getName() == "mouse" && mousePlaced) {
-									grid[temp].setBackground(Color.WHITE);
-									grid[temp].setName("tile");
-									mousePlaced = false;
-								}
-
-								temp = Integer.valueOf(e.getActionCommand());
-								if (mouseToggle == false) {
-									if (grid[temp].getName() == "tile") {
-
-										grid[temp].setBackground(Color.BLACK);
-										grid[temp].setName("wall");
-
-									} else if (grid[temp].getName() == "wall") {
-
-										System.out.println("grid[" + temp + "].setBackground(Color.BLACK);");
-									} else if (grid[temp].getName() == "wall") {
-
-										grid[temp].setBackground(Color.WHITE);
-										grid[temp].setName("tile");
-										System.out.println("grid[" + temp + "].setBackground(Color.WHITE);");
-									}
-								} else {
-									if (grid[temp].getName() == "tile" && mousePlaced == false) {
-										grid[temp].setBackground(Color.ORANGE);
-										grid[temp].setName("mouse");
-										mousePlaced = true;
-										mousePos = temp;
-									} else if (grid[temp].getName() == "mouse" && mousePlaced) {
-										grid[temp].setBackground(Color.WHITE);
-										grid[temp].setName("tile");
-										mousePlaced = false;
-									}
-
-								}
-
-							}
+							grid[temp].setBackground(Color.WHITE);
+							grid[temp].setName("tile");
+							System.out.println("grid["+temp+"].setBackground(Color.WHITE);");
+							System.out.println("grid["+temp+"].setName(\"tile\");");
 						}
+					} else {
+						if (grid[temp].getName() == "tile" && mousePlaced == false) {
+							grid[temp].setBackground(Color.ORANGE);
+							grid[temp].setName("mouse");
+							mousePlaced = true;
+							mousePos = temp;
+						} else if (grid[temp].getName() == "mouse" && mousePlaced) {
+							grid[temp].setBackground(Color.WHITE);
+							grid[temp].setName("tile");
+							mousePlaced = false;
+						}
+
 					}
+
 				}
 
-			});
+					}}});
 
 		}
 		panel.add(preset2);
@@ -206,6 +188,7 @@ public class Board {
 	public void preset1() {
 
 		System.out.println(a);
+		
 
 		grid[382].setBackground(Color.BLACK);
 		grid[362].setBackground(Color.BLACK);
@@ -289,10 +272,13 @@ public class Board {
 		grid[386].setBackground(Color.BLACK);
 		grid[387].setBackground(Color.BLACK);
 
+
 	}
 
-	public void preset2() {
+	
 
+	public void preset2() {
+		System.out.println("hi");
 	}
 
 	public void moveMouse() {
