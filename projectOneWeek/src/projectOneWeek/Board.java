@@ -87,6 +87,7 @@ public class Board {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				clearBoard();
 				preset1();
 			}
 			
@@ -96,6 +97,7 @@ public class Board {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				clearBoard();
 				preset2();
 				
 			}
