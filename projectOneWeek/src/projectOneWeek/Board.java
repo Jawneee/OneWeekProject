@@ -162,7 +162,7 @@ public class Board {
 		
 		
 		
-		
+		panel.add(preset2);
 		panel.add(preset1);
 		panel.add(clear);
 		panel.add(mouseButton, c);
@@ -279,7 +279,10 @@ public class Board {
 		grid[362].setName("wall");
 		grid[382].setBackground(Color.BLACK);
 		grid[382].setName("wall");
+		
 	}
+	
+	
 	public void preset2() {
 		
 	}
