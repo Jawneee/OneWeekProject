@@ -283,7 +283,9 @@ public class Board {
 		
 	}
 	
-	
+	/**
+	 * preset 2
+	 */
 	public void preset2() {
 		
 	}
