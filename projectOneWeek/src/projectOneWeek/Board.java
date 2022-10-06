@@ -1,5 +1,7 @@
 package projectOneWeek;
 
+import java.util.Timer;
+import java.util.TimerTask;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -8,8 +10,12 @@ import java.awt.event.ActionListener;
 
 
 public class Board {
+	
+	MainBoard m1 = new MainBoard();
+	
 	String a = "\"\"";
 	
+	int speed;
 	
 	Mouse m = new Mouse();
 	int mousePos;
@@ -22,10 +28,16 @@ public class Board {
 	JButton mouseButton;
 	JButton clear;
 	JButton preset1;
+	JButton incT;
+	JButton decT;
 	
 	boolean mousePlaced;
 	
+	
+	
 	public Board() {
+		speed = 1000;
+		
 		mouseToggle = false;
 		mousePlaced = false;
 		
@@ -47,6 +59,12 @@ public class Board {
 		clear=new JButton();
 		clear.setBackground(Color.lightGray);
 		clear.setText("Clear");
+		incT = new JButton();
+		incT.setBackground(Color.green);
+		incT.setText(">> Speed");
+		decT = new JButton();
+		decT.setBackground(Color.red);
+		decT.setText("<< Speed");
 		mouseButton = new JButton();
 		mouseButton.setBackground(Color.RED);
 		mouseButton.setText("Mouse");
@@ -86,6 +104,30 @@ public class Board {
 			}
 			
 		});
+		
+		decT.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {	
+				
+				System.out.println("Decreased Speed");
+				
+			}
+			
+			
+		});
+		c.gridx = -1;
+		
+		incT.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+			
+		});
+		c.gridx = -1;
+		
 		
 		for(int i=0; i<400; i++) {
             if(i == 20 || i==40 || i==60 || i==80 || i==100 || i==120 || i==140 || i==160 || i==180 || i == 200|| i==220||i==240||i==260||i==280||i==300||i==320||i==340||i==360||i==380) {
@@ -150,11 +192,23 @@ public class Board {
 		panel.add(preset1);
 		panel.add(clear);
 		panel.add(mouseButton, c);
+		panel.add(decT, c);
+		panel.add(incT, c);
 		frame.setContentPane(panel);
 		frame.setVisible(true);
 		
 		
 	}
+	
+	
+	public int increaseSpeed() {
+		return -100;
+	}
+	
+	public int decreaseSpeed() {
+		return + 100;
+	}
+	
 	public void clearBoard() {
 		for(int i=0;i<grid.length;i++) {
 			grid[i].setName("tile");
@@ -304,6 +358,8 @@ public class Board {
 			}
 		}
 	}
+	
+	
 	
 
 }
