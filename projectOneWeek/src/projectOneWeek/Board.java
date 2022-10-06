@@ -1,7 +1,6 @@
 package projectOneWeek;
 
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.Random;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,12 +9,8 @@ import java.awt.event.ActionListener;
 
 
 public class Board {
-	
-	MainBoard m1 = new MainBoard();
-	
 	String a = "\"\"";
 	
-	int speed;
 	
 	Mouse m = new Mouse();
 	int mousePos;
@@ -28,17 +23,11 @@ public class Board {
 	JButton mouseButton;
 	JButton clear;
 	JButton preset1;
-	JButton incT;
-	JButton decT;
 	JButton preset2;
 	
 	boolean mousePlaced;
 	
-	
-	
 	public Board() {
-		speed = 1000;
-		
 		mouseToggle = false;
 		mousePlaced = false;
 		
@@ -64,12 +53,6 @@ public class Board {
 		clear=new JButton();
 		clear.setBackground(Color.lightGray);
 		clear.setText("Clear");
-		incT = new JButton();
-		incT.setBackground(Color.green);
-		incT.setText(">> Speed");
-		decT = new JButton();
-		decT.setBackground(Color.red);
-		decT.setText("<< Speed");
 		mouseButton = new JButton();
 		mouseButton.setBackground(Color.RED);
 		mouseButton.setText("Mouse");
@@ -110,30 +93,6 @@ public class Board {
 			}
 			
 		});
-
-		decT.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {	
-				
-				System.out.println("Decreased Speed");
-				
-			}
-			
-			
-		});
-		c.gridx = -1;
-		
-		incT.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-			
-		});
-		c.gridx = -1;
-		
 		
 		preset2.addActionListener(new ActionListener() {
 
@@ -209,23 +168,11 @@ public class Board {
 		panel.add(preset1);
 		panel.add(clear);
 		panel.add(mouseButton, c);
-		panel.add(decT, c);
-		panel.add(incT, c);
 		frame.setContentPane(panel);
 		frame.setVisible(true);
 		
 		
 	}
-	
-	
-	public int increaseSpeed() {
-		return -100;
-	}
-	
-	public int decreaseSpeed() {
-		return + 100;
-	}
-	
 	public void clearBoard() {
 		for(int i=0;i<grid.length;i++) {
 			grid[i].setName("tile");
