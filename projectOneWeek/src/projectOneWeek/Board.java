@@ -100,6 +100,7 @@ public class Board {
 				clearBoard();
 				preset2();
 				
+				
 			}
 			
 		});
