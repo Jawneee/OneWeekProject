@@ -169,6 +169,7 @@ public class Board {
 	}
 	public void preset2() {
 		
+		
 	}
 	public void moveMouse() {
 		
