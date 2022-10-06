@@ -283,7 +283,9 @@ public class Board {
 		
 	}
 	
-	
+	/**
+	 * preset 2
+	 */
 	public void preset2() {
 		grid[360].setBackground(Color.BLACK);
 		grid[360].setName("wall");
