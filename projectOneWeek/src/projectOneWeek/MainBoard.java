@@ -18,6 +18,7 @@ public class MainBoard {
 				num++;
 				
 				b.moveMouse();
+				b.flip();
 				if(num<0) {
 					timer.cancel(); //cancel timer, will change num to finish once created so timer stops after mouse finishes maze
 				}

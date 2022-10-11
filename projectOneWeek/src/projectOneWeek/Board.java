@@ -1198,12 +1198,29 @@ public class Board {
 		Random r = new Random();
 		int rand = r.nextInt(1);
 		if (mousePlaced) {
-			if (grid[mousePos - 1].getBackground() == Color.WHITE
-					&& grid[mousePos + 20].getBackground() == Color.WHITE) {
+			if (grid[mousePos + 1].getBackground() == Color.WHITE
+					&& grid[mousePos - 20].getBackground() == Color.WHITE) {
 				if (rand == 0) {
-					System.out.println("yes");
-				} else {
-					System.out.println("no");
+					if (grid[mousePos + 1].getName() == "tile" && grid[mousePos + 1].getBackground() != Color.gray) {
+						grid[mousePos].setBackground(Color.WHITE);
+						grid[mousePos].setName("tile");
+						grid[mousePos + 1].setBackground(Color.ORANGE);
+						grid[mousePos + 1].setName("mouse");
+						grid[mousePos].setBackground(Color.gray);
+						mousePos = mousePos + m.right();
+						System.out.println("Move Right");
+					} else if (rand == 1) {
+						if (grid[mousePos - 20].getName() == "tile"
+								&& grid[mousePos - 20].getBackground() != Color.gray) {
+							grid[mousePos].setBackground(Color.WHITE);
+							grid[mousePos].setName("tile");
+							grid[mousePos + m.up()].setBackground(Color.ORANGE);
+							grid[mousePos + m.up()].setName("mouse");
+							grid[mousePos].setBackground(Color.gray);
+							mousePos = mousePos + m.up();
+						}
+					}
+
 				}
 			}
 		}
