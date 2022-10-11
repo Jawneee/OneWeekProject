@@ -1196,7 +1196,7 @@ public class Board {
 
 	public void flip() {
 		Random r = new Random();
-		int rand = r.nextInt(1);
+		int rand = r.nextInt(2);
 		System.out.println(rand);
 		if (mousePlaced) {
 			if (grid[mousePos + 1].getBackground() == Color.WHITE
