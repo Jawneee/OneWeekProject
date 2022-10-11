@@ -163,7 +163,6 @@ public class Board {
 		}
 		
 		
-		
 		panel.add(preset2);
 		panel.add(preset1);
 		panel.add(clear);
