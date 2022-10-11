@@ -29,6 +29,10 @@ public class Mouse {
 		x=-1;
 		return x;
 	}
+	public int stop() {
+		x=0;
+		return x;
+	}
 	
 	
 	
