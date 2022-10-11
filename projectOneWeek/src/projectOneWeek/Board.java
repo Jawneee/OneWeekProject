@@ -1117,6 +1117,7 @@ public class Board {
 
 		Random r = new Random(1);
 		if (mousePlaced) {
+			
 			if (grid[mousePos + 1].getName() == "tile" && grid[mousePos + 1].getBackground() != Color.gray) {
 				grid[mousePos].setBackground(Color.WHITE);
 				grid[mousePos].setName("tile");
@@ -1150,8 +1151,7 @@ public class Board {
 
 				try {
 					if (mousePlaced) {
-						if (grid[mousePos + 1].getName() == "tile"
-								&& grid[mousePos + 1].getBackground() != Color.gray) {
+						if (grid[mousePos + 1].getName() == "tile"&& grid[mousePos + 1].getBackground() != Color.gray) {
 							grid[mousePos].setBackground(Color.WHITE);
 							grid[mousePos].setName("tile");
 							grid[mousePos + 1].setBackground(Color.ORANGE);
@@ -1199,8 +1199,7 @@ public class Board {
 			Random r = new Random();
 			int rand = r.nextInt(2);
 			System.out.println(rand);
-			if (grid[mousePos + 1].getBackground() == Color.WHITE
-					&& grid[mousePos - 20].getBackground() == Color.WHITE) {
+			if (grid[mousePos + 1].getBackground() == Color.WHITE&& grid[mousePos - 20].getBackground() == Color.WHITE) {
 				if (rand == 0) {
 					if (grid[mousePos + 1].getName() == "tile" && grid[mousePos + 1].getBackground() != Color.gray) {
 						grid[mousePos].setBackground(Color.WHITE);
@@ -1209,6 +1208,30 @@ public class Board {
 						grid[mousePos + 1].setName("mouse");
 						grid[mousePos].setBackground(Color.gray);
 						mousePos = mousePos + m.right();
+						System.out.println("Move Right");
+					} else if (rand == 1) {
+						if (grid[mousePos - 20].getName() == "tile"
+								&& grid[mousePos - 20].getBackground() != Color.gray) {
+							grid[mousePos].setBackground(Color.WHITE);
+							grid[mousePos].setName("tile");
+							grid[mousePos + m.up()].setBackground(Color.ORANGE);
+							grid[mousePos + m.up()].setName("mouse");
+							grid[mousePos].setBackground(Color.gray);
+							mousePos = mousePos + m.up();
+						}
+					}
+
+				}
+			}
+			if (grid[mousePos -1].getBackground() == Color.WHITE&& grid[mousePos - 20].getBackground() == Color.WHITE) {
+				if (rand == 0) {
+					if (grid[mousePos - 1].getName() == "tile" && grid[mousePos + 1].getBackground() != Color.gray) {
+						grid[mousePos].setBackground(Color.WHITE);
+						grid[mousePos].setName("tile");
+						grid[mousePos - 1].setBackground(Color.ORANGE);
+						grid[mousePos - 1].setName("mouse");
+						grid[mousePos].setBackground(Color.gray);
+						mousePos = mousePos + m.left();
 						System.out.println("Move Right");
 					} else if (rand == 1) {
 						if (grid[mousePos - 20].getName() == "tile"
