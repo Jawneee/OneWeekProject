@@ -172,6 +172,7 @@ public class Board {
 			grid[i].setBackground(Color.white);
 			mousePlaced = false;
 		}
+		
 
 	}
 
