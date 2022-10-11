@@ -108,6 +108,7 @@ public class Board {
 		for(int i=0; i<400; i++) {
             if(i == 20 || i==40 || i==60 || i==80 || i==100 || i==120 || i==140 || i==160 || i==180 || i == 200|| i==220||i==240||i==260||i==280||i==300||i==320||i==340||i==360||i==380) {
                 c.gridy = c.gridy + 2;
+              
             }
 			String get;
             get = String.valueOf(i);
@@ -835,7 +836,7 @@ public class Board {
 	}
 	public void moveMouse() {
 		
-		
+		Random r = new Random(1);
 		if(mousePlaced) {
 			if(grid[mousePos+1].getName() == "tile" && grid[mousePos+1].getBackground() != Color.gray) {
 				grid[mousePos].setBackground(Color.WHITE);
@@ -871,6 +872,18 @@ public class Board {
 		}
 	}
 	
-	
+	public void flip() {
+		Random r = new Random();
+		int rand = r.nextInt(1);
+		if(mousePlaced) {
+			if(grid[mousePos-1].getBackground()==Color.WHITE&&grid[mousePos+20].getBackground()==Color.WHITE) {
+				if(rand==0) {
+					System.out.println("yes");
+				}else {
+					System.out.println("no");
+				}
+			}
+		}
+	}
 
 }
