@@ -202,6 +202,7 @@ public class Board {
 		grid[388].setName("wall");
 		grid[389].setBackground(Color.BLACK);
 		grid[389].setName("wall");
+		
 		grid[390].setBackground(Color.BLACK);
 		grid[390].setName("wall");
 		grid[391].setBackground(Color.BLACK);
