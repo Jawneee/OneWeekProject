@@ -1,7 +1,10 @@
 package projectOneWeek;
 
+import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.*;
+import java.util.*;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,6 +29,9 @@ public class Board {
 	JButton preset2;
 	
 	boolean mousePlaced;
+	
+	ArrayList<Integer> lastPos = new ArrayList<Integer>();
+	Random r = new Random();
 	
 	public Board() {
 		mouseToggle = false;
@@ -1126,17 +1132,18 @@ public class Board {
 	
 	
 	public void moveMouse() {
+		int rand;
+		
 		
 		try {
 			if(mousePlaced) {
-				if(grid[mousePos+1].getName() == "tile" && grid[mousePos+1].getBackground() != Color.gray) {
+				if(grid[mousePos+1].getName() == "tile" && grid[mousePos+1].getBackground() != Color.gray && grid[mousePos-1].getName() == "tile" && grid[mousePos-1].getBackground() != Color.gray) {
 					grid[mousePos].setBackground(Color.WHITE);
 					grid[mousePos].setName("tile");
 					grid[mousePos+1].setBackground(Color.ORANGE);
 					grid[mousePos+1].setName("mouse");
 					grid[mousePos].setBackground(Color.gray);
 					mousePos = mousePos+m.right();
-					System.out.println("Move Right");
 				}else if(grid[mousePos-1].getName() == "tile" && grid[mousePos-1].getBackground() != Color.gray) {
 					grid[mousePos].setBackground(Color.WHITE);
 					grid[mousePos].setName("tile");
@@ -1144,7 +1151,6 @@ public class Board {
 					grid[mousePos+m.left()].setName("mouse");
 					grid[mousePos].setBackground(Color.gray);
 					mousePos = mousePos+m.left();
-					System.out.println("Move Left");
 				}else if(grid[mousePos-20].getName() == "tile" && grid[mousePos-20].getBackground() != Color.gray) {
 					grid[mousePos].setBackground(Color.WHITE);
 					grid[mousePos].setName("tile");
@@ -1159,7 +1165,13 @@ public class Board {
 					grid[mousePos+m.down()].setName("mouse");
 					grid[mousePos].setBackground(Color.gray);
 					mousePos = mousePos+m.down();
+					
 				}
+				lastPos.add(mousePos);
+				if(lastPos.size()>1) {
+					lastPos.remove(0);
+				}
+				System.out.println(lastPos);
 			}
 		}catch(ArrayIndexOutOfBoundsException e) {
 			System.out.println("Meep Moop");
