@@ -1193,12 +1193,18 @@ public class Board {
 			}
 		}
 	}
+	
+	public void callFlip() {
+		flip();
+		
+	}
 
 	public void flip() {
-		Random r = new Random();
-		int rand = r.nextInt(2);
-		System.out.println(rand);
+
 		if (mousePlaced) {
+			Random r = new Random();
+			int rand = r.nextInt(2);
+			System.out.println(rand);
 			if (grid[mousePos + 1].getBackground() == Color.WHITE
 					&& grid[mousePos - 20].getBackground() == Color.WHITE) {
 				if (rand == 0) {
