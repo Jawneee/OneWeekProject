@@ -40,7 +40,7 @@ public class Board {
 		
 		frame = new JFrame("Mouse Maze");
 		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
-		frame.setSize(800,800);
+		frame.setSize(1500,750);
 		frame.setLocationRelativeTo(null);
 		
 		
