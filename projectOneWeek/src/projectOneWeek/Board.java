@@ -25,6 +25,7 @@ public class Board {
 	boolean mouseToggle;
 	JButton mouseButton;
 	JButton clear;
+	JButton grayClear;
 	JButton preset1;
 	JButton preset2;
 	
@@ -56,6 +57,10 @@ public class Board {
 		preset2.setBackground(Color.gray);
 		preset2.setText("Preset2");
 		
+		grayClear = new JButton();
+		grayClear.setBackground(Color.lightGray);
+		grayClear.setText("GrayClear");
+		
 		clear=new JButton();
 		clear.setBackground(Color.lightGray);
 		clear.setText("Clear");
@@ -79,6 +84,15 @@ public class Board {
 			
 		});
 		
+		grayClear.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				grayClear();
+			}
+			
+		});
 		clear.addActionListener(new ActionListener() {
 
 			@Override
@@ -169,7 +183,7 @@ public class Board {
 		}
 		
 		
-		
+		panel.add(grayClear);
 		panel.add(preset2);
 		panel.add(preset1);
 		panel.add(clear);
@@ -178,6 +192,15 @@ public class Board {
 		frame.setVisible(true);
 		
 		
+	}
+	
+	public void grayClear() {
+		for(int i = 0; i < grid.length; i ++ ) {
+			if(grid[i].getBackground() == Color.gray) {
+				grid[i].setName("tile");
+				grid[i].setBackground(Color.white);
+			}
+		}
 	}
 	public void clearBoard() {
 		for(int i=0;i<grid.length;i++) {
