@@ -1244,6 +1244,31 @@ public class Board {
 						grid[mousePos].setBackground(Color.gray);
 						mousePos = mousePos+m.down();
 					}
+				}else if(grid[mousePos+1].getName() == "tile" && grid[mousePos+1].getBackground() != Color.gray && grid[mousePos+20].getName() == "tile" && grid[mousePos+20].getBackground() != Color.gray&& grid[mousePos-20].getName() == "tile" && grid[mousePos-20].getBackground() != Color.gray) {
+					rand = r.nextInt(4);
+					System.out.println(rand);
+					if(rand == 1) {
+						grid[mousePos].setBackground(Color.WHITE);
+						grid[mousePos].setName("tile");
+						grid[mousePos+1].setBackground(Color.ORANGE);
+						grid[mousePos+1].setName("mouse");
+						grid[mousePos].setBackground(Color.gray);
+						mousePos = mousePos+m.right();
+					}else if(rand == 0) {
+						grid[mousePos].setBackground(Color.WHITE);
+						grid[mousePos].setName("tile");
+						grid[mousePos+m.down()].setBackground(Color.ORANGE);
+						grid[mousePos+m.down()].setName("mouse");
+						grid[mousePos].setBackground(Color.gray);
+						mousePos = mousePos+m.down();
+					}else if(rand==2) {
+						grid[mousePos].setBackground(Color.WHITE);
+						grid[mousePos].setName("tile");
+						grid[mousePos+m.up()].setBackground(Color.ORANGE);
+						grid[mousePos+m.up()].setName("mouse");
+						grid[mousePos].setBackground(Color.gray);
+						mousePos = mousePos+m.up();
+					}
 				}
 				
 				
