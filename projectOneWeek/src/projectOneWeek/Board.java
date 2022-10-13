@@ -165,7 +165,7 @@ public class Board {
 				if(speed>100) {
 					speed-=100;
 					timer.setDelay(speed);
-					System.out.println(speed);
+					System.out.println("Timer speed= " + speed);
 				}
 				
 				
