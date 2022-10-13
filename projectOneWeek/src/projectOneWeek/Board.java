@@ -289,7 +289,9 @@ public class Board {
 	}
 
 	public void preset1() {
-
+		
+		grid[370].setBackground(Color.BLACK);
+		grid[370].setName("wall");
 		grid[0].setBackground(Color.BLACK);
 		grid[0].setName("wall");
 		grid[20].setBackground(Color.BLACK);
@@ -740,7 +742,8 @@ public class Board {
 		grid[57].setName("wall");
 		grid[56].setBackground(Color.BLACK);
 		grid[56].setName("wall");
-
+		grid[16].setBackground(Color.WHITE);
+		grid[16].setName("tile");
 
 	}
 
@@ -1220,6 +1223,7 @@ public class Board {
 		
 		try {
 			if(mousePlaced) {
+				
 				if(grid[mousePos+1].getName() == "tile" && grid[mousePos+1].getBackground() != Color.gray) {
 					grid[mousePos].setBackground(Color.WHITE);
 					grid[mousePos].setName("tile");
@@ -1227,6 +1231,7 @@ public class Board {
 					grid[mousePos+1].setName("mouse");
 					grid[mousePos].setBackground(Color.gray);
 					mousePos = mousePos+m.right();
+					
 				}else if(grid[mousePos-1].getName() == "tile" && grid[mousePos-1].getBackground() != Color.gray) {
 					grid[mousePos].setBackground(Color.WHITE);
 					grid[mousePos].setName("tile");
@@ -1250,12 +1255,9 @@ public class Board {
 					mousePos = mousePos+m.down();
 				}
 				
-				
-				
-				
 				if(grid[mousePos+1].getName() == "tile" && grid[mousePos+1].getBackground() != Color.gray && grid[mousePos+20].getName() == "tile" && grid[mousePos+20].getBackground() != Color.gray&& grid[mousePos-20].getName() == "tile" && grid[mousePos-20].getBackground() != Color.gray) {
 					lastLoc = mousePos;
-					rand = r.nextInt(4);
+					rand = r.nextInt(3);
 					System.out.println(rand);
 					if(rand == 1) {
 						grid[mousePos].setBackground(Color.WHITE);
@@ -1338,6 +1340,13 @@ public class Board {
 						grid[mousePos].setBackground(Color.gray);
 						mousePos = mousePos+m.left();
 					}
+				}else if(grid[mousePos+1].getName() == "tile" && grid[mousePos+1].getBackground() != Color.gray) {
+					grid[mousePos].setBackground(Color.WHITE);
+					grid[mousePos].setName("tile");
+					grid[mousePos+1].setBackground(Color.ORANGE);
+					grid[mousePos+1].setName("mouse");
+					grid[mousePos].setBackground(Color.gray);
+					mousePos = mousePos+m.right();
 				}
 				
 				
@@ -1386,7 +1395,7 @@ public class Board {
 						grid[mousePos].setBackground(Color.gray);
 						mousePos = mousePos+m.up();
 					}
-				}else if(grid[mousePos-1].getName() == "tile" && grid[mousePos-1].getBackground() != Color.gray && grid[mousePos+20].getName() == "tile" && grid[mousePos+20].getBackground() == Color.gray) {
+				}else if(grid[mousePos-1].getName() == "tile" && grid[mousePos-1].getBackground() != Color.gray && grid[mousePos+20].getName() == "tile" && grid[mousePos+20].getBackground() != Color.gray) {
 					lastLoc = mousePos;
 					rand = r.nextInt(2);
 					System.out.println(rand);
@@ -1405,30 +1414,62 @@ public class Board {
 						grid[mousePos].setBackground(Color.gray);
 						mousePos = mousePos+m.up();
 					}
+				}else if(grid[mousePos-1].getName() == "tile" && grid[mousePos-1].getBackground() != Color.gray) {
+					grid[mousePos].setBackground(Color.WHITE);
+					grid[mousePos].setName("tile");
+					grid[mousePos-1].setBackground(Color.ORANGE);
+					grid[mousePos-1].setName("mouse");
+					grid[mousePos].setBackground(Color.gray);
+					mousePos = mousePos+m.left();
 				}
 				
+				if(grid[mousePos+20].getName() == "tile" && grid[mousePos+20].getBackground() != Color.gray && grid[mousePos-20].getName() == "tile" && grid[mousePos-20].getBackground() != Color.gray) {
+					lastLoc = mousePos;
+					rand = r.nextInt(2);
+					System.out.println(rand);
+					if(rand == 1) {
+						grid[mousePos].setBackground(Color.WHITE);
+						grid[mousePos].setName("tile");
+						grid[mousePos-20].setBackground(Color.ORANGE);
+						grid[mousePos-20].setName("mouse");
+						grid[mousePos].setBackground(Color.gray);
+						mousePos = mousePos+m.up();
+					}else if(rand == 0) {
+						grid[mousePos].setBackground(Color.WHITE);
+						grid[mousePos].setName("tile");
+						grid[mousePos+20].setBackground(Color.ORANGE);
+						grid[mousePos+20].setName("mouse");
+						grid[mousePos].setBackground(Color.gray);
+						mousePos = mousePos+m.down();
+					}
+				}
+				
+				
+				
+				
 				if(grid[mousePos-20].getBackground() == Color.BLACK && grid[mousePos-1].getBackground() == Color.BLACK && grid[mousePos+1].getBackground() == Color.BLACK && grid[mousePos+20].getBackground() == Color.gray) {
-					
-					grid[lastLoc].setBackground(Color.orange);
 					grid[mousePos].setBackground(Color.white);
+					grid[lastLoc].setBackground(Color.orange);
+					
 					mousePos = lastLoc;
 				}else if(grid[mousePos-20].getBackground() == Color.BLACK && grid[mousePos+1].getBackground() == Color.BLACK && grid[mousePos+20].getBackground() == Color.BLACK&& grid[mousePos-1].getBackground() == Color.gray) {
-					
-					grid[lastLoc].setBackground(Color.orange);
 					grid[mousePos].setBackground(Color.white);
+					grid[lastLoc].setBackground(Color.orange);
+					
 					mousePos = lastLoc;
-				}else if(grid[mousePos-20].getBackground() == Color.BLACK && grid[mousePos-1].getBackground() == Color.BLACK && grid[mousePos+20].getBackground() == Color.BLACK&& grid[mousePos+1].getBackground() == Color.gray) {
 					
-					grid[lastLoc].setBackground(Color.orange);
+				}else if(grid[mousePos-20].getBackground() == Color.BLACK && grid[mousePos-1].getBackground() == Color.BLACK && grid[mousePos+20].getBackground() == Color.BLACK&& grid[mousePos+1].getBackground() == Color.gray) {
 					grid[mousePos].setBackground(Color.white);
+					grid[lastLoc].setBackground(Color.orange);
+					
 					mousePos = lastLoc;
 				}else if(grid[mousePos+20].getBackground() == Color.BLACK && grid[mousePos-1].getBackground() == Color.BLACK && grid[mousePos+1].getBackground() == Color.BLACK&& grid[mousePos-20].getBackground() == Color.gray) {
-					
-					grid[lastLoc].setBackground(Color.orange);
 					grid[mousePos].setBackground(Color.white);
+					grid[lastLoc].setBackground(Color.orange);
+					
 					mousePos = lastLoc;
 				}else {
-					System.out.println("Missed something");
+					
 				}
 				
 				
