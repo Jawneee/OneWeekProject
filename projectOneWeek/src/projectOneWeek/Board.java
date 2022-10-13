@@ -146,8 +146,8 @@ public class Board {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				moveMouse();
-				num++;
-				System.out.println(num);
+				
+				
 				
 			}
 			
