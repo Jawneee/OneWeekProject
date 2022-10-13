@@ -5,28 +5,32 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 
 public class Board {
-	//adwaadwda
+	
 	String a = "\"\"";
-
+	
 	Mouse m = new Mouse();
 	int mousePos;
-
+	
 	JFrame frame;
 	JPanel panel;
 	JLabel label;
 	JButton[] grid;
 	boolean mouseToggle;
+	JButton user;
 	JButton mouseButton;
 	JButton clear;
 	JButton grayClear;
 	JButton preset1;
 	JButton preset2;
-
+	
 	boolean mousePlaced;
 
 	public Board() {
+
+		
 		mouseToggle = false;
 		mousePlaced = false;
 
@@ -39,6 +43,9 @@ public class Board {
 		GridBagConstraints c = new GridBagConstraints();
 
 		grid = new JButton[400];
+		user = new JButton();
+		user.setText("USER_CONTROL");
+		user.setBackground(Color.gray);
 		String[] ac = new String[400];
 		preset1 = new JButton();
 		preset1.setBackground(Color.gray);
@@ -47,7 +54,7 @@ public class Board {
 		preset2 = new JButton();
 		preset2.setBackground(Color.gray);
 		preset2.setText("Preset2");
-
+		
 		grayClear = new JButton();
 		grayClear.setBackground(Color.lightGray);
 		grayClear.setText("GrayClear");
@@ -171,6 +178,21 @@ public class Board {
 			});
 
 		}
+		user.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				
+			}
+			
+		});
+		
+		
+		
+		
+		
+		panel.add(user,c);
 		panel.add(grayClear);
 		panel.add(preset2);
 		panel.add(preset1);
@@ -1178,6 +1200,21 @@ public class Board {
 
 			}
 		}
+	}
+
+
+	public void keyPressed(KeyEvent e) {
+		int key = e.getKeyCode();
+		
+		if(key == KeyEvent.VK_RIGHT) {
+			System.out.println("You have clicked the right arrow");
+		}
+		
+	}
+
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	
