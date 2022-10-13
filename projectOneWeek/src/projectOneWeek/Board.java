@@ -147,7 +147,6 @@ public class Board {
 			public void actionPerformed(ActionEvent e) {
 				moveMouse();
 				num++;
-				System.out.println(num);
 				
 			}
 			
@@ -1362,7 +1361,18 @@ public class Board {
 					grid[mousePos].setBackground(Color.gray);
 					grid[lastLoc].setBackground(Color.orange);
 					mousePos = lastLoc;
-					grid[lastLoc].setBackground(Color.white);
+				}else if(grid[mousePos-20].getBackground() == Color.BLACK && grid[mousePos+1].getBackground() == Color.BLACK && grid[mousePos+20].getBackground() == Color.BLACK) {
+					grid[mousePos].setBackground(Color.gray);
+					grid[lastLoc].setBackground(Color.orange);
+					mousePos = lastLoc;
+				}else if(grid[mousePos-20].getBackground() == Color.BLACK && grid[mousePos-1].getBackground() == Color.BLACK && grid[mousePos+20].getBackground() == Color.BLACK) {
+					grid[mousePos].setBackground(Color.gray);
+					grid[lastLoc].setBackground(Color.orange);
+					mousePos = lastLoc;
+				}else if(grid[mousePos+20].getBackground() == Color.BLACK && grid[mousePos-1].getBackground() == Color.BLACK && grid[mousePos+1].getBackground() == Color.BLACK) {
+					grid[mousePos].setBackground(Color.gray);
+					grid[lastLoc].setBackground(Color.orange);
+					mousePos = lastLoc;
 				}
 				
 				
