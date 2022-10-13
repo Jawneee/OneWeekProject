@@ -1263,8 +1263,8 @@ public class Board {
 						mousePos = mousePos+m.left();
 					}
 				}
-				if(grid[mousePos-1].getName() == "tile" && grid[mousePos+1].getBackground() != Color.gray && grid[mousePos+20].getName() == "tile" && grid[mousePos+20].getBackground() != Color.gray&& grid[mousePos-20].getName() == "tile" && grid[mousePos-20].getBackground() != Color.gray) {
-					rand = r.nextInt(4);
+				if(grid[mousePos-1].getName() == "tile" && grid[mousePos-1].getBackground() != Color.gray && grid[mousePos+20].getName() == "tile" && grid[mousePos+20].getBackground() != Color.gray&& grid[mousePos-20].getName() == "tile" && grid[mousePos-20].getBackground() != Color.gray) {
+					rand = r.nextInt(3);
 					System.out.println(rand);
 					if(rand == 1) {
 						grid[mousePos].setBackground(Color.WHITE);
