@@ -3,6 +3,8 @@ package projectOneWeek;
 import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.*;
+import javax.swing.Timer;
+
 import java.util.*;
 
 import java.awt.*;
@@ -14,7 +16,9 @@ public class Board {
 
 	Mouse m = new Mouse();
 	int mousePos;
-
+	int speed;
+	int num;
+	
 	JFrame frame;
 	JPanel panel;
 	JLabel label;
@@ -25,6 +29,9 @@ public class Board {
 	JButton grayClear;
 	JButton preset1;
 	JButton preset2;
+	JButton increase;
+	JButton decrease;
+	Timer timer;
 
 	boolean mousePlaced;
 
@@ -32,6 +39,9 @@ public class Board {
 	Random r = new Random();
 
 	public Board() {
+		
+		speed=1000;
+		
 		mouseToggle = false;
 		mousePlaced = false;
 
@@ -56,6 +66,15 @@ public class Board {
 		grayClear = new JButton();
 		grayClear.setBackground(Color.lightGray);
 		grayClear.setText("GrayClear");
+		
+		increase=new JButton();
+		increase.setBackground(Color.green);
+		increase.setText("Increase -->");
+		
+		decrease=new JButton();
+		decrease.setBackground(Color.red);
+		decrease.setText("<-- Decrease");
+		
 
 		clear = new JButton();
 		clear.setBackground(Color.lightGray);
@@ -120,6 +139,47 @@ public class Board {
 			}
 
 		});
+		
+		
+		timer = new Timer(speed, new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				moveMouse();
+				num++;
+				System.out.println(num);
+				
+			}
+			
+		});
+		timer.start();
+	
+		
+		increase.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				speed-=100;
+				timer.setDelay(speed);
+				
+			}
+			
+		});
+		c.gridy=0;
+		
+		decrease.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				speed+=100;
+				timer.setDelay(speed);
+				
+			}
+			
+		});
+		c.gridy=0;
+		
+		
 		for (int i = 0; i < 400; i++) {
 			if (i == 20 || i == 40 || i == 60 || i == 80 || i == 100 || i == 120 || i == 140 || i == 160 || i == 180
 					|| i == 200 || i == 220 || i == 240 || i == 260 || i == 280 || i == 300 || i == 320 || i == 340
@@ -180,6 +240,9 @@ public class Board {
 		panel.add(preset1);
 		panel.add(clear);
 		panel.add(mouseButton, c);
+		panel.add(decrease, c);
+		panel.add(increase, c);
+	
 		frame.setContentPane(panel);
 		frame.setVisible(true);
 
