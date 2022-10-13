@@ -1376,7 +1376,7 @@ public class Board {
 						grid[mousePos].setBackground(Color.gray);
 						mousePos = mousePos+m.up();
 					}
-				}else if(grid[mousePos-1].getName() == "tile" && grid[mousePos-1].getBackground() != Color.gray && grid[mousePos-20].getName() == "tile" && grid[mousePos].getBackground() != Color.gray) {
+				}else if(grid[mousePos-1].getName() == "tile" && grid[mousePos-1].getBackground() != Color.gray && grid[mousePos-20].getName() == "tile" && grid[mousePos-20].getBackground() != Color.gray) {
 					lastLoc = mousePos;
 					rand = r.nextInt(2);
 					System.out.println(rand);
@@ -1448,23 +1448,23 @@ public class Board {
 				
 				
 				if(grid[mousePos-20].getBackground() == Color.BLACK && grid[mousePos-1].getBackground() == Color.BLACK && grid[mousePos+1].getBackground() == Color.BLACK && grid[mousePos+20].getBackground() == Color.gray) {
-					grid[mousePos].setBackground(Color.white);
+					grid[mousePos].setBackground(Color.gray);
 					grid[lastLoc].setBackground(Color.orange);
 					
 					mousePos = lastLoc;
 				}else if(grid[mousePos-20].getBackground() == Color.BLACK && grid[mousePos+1].getBackground() == Color.BLACK && grid[mousePos+20].getBackground() == Color.BLACK&& grid[mousePos-1].getBackground() == Color.gray) {
-					grid[mousePos].setBackground(Color.white);
+					grid[mousePos].setBackground(Color.gray);
 					grid[lastLoc].setBackground(Color.orange);
 					
 					mousePos = lastLoc;
 					
 				}else if(grid[mousePos-20].getBackground() == Color.BLACK && grid[mousePos-1].getBackground() == Color.BLACK && grid[mousePos+20].getBackground() == Color.BLACK&& grid[mousePos+1].getBackground() == Color.gray) {
-					grid[mousePos].setBackground(Color.white);
+					grid[mousePos].setBackground(Color.gray);
 					grid[lastLoc].setBackground(Color.orange);
 					
 					mousePos = lastLoc;
 				}else if(grid[mousePos+20].getBackground() == Color.BLACK && grid[mousePos-1].getBackground() == Color.BLACK && grid[mousePos+1].getBackground() == Color.BLACK&& grid[mousePos-20].getBackground() == Color.gray) {
-					grid[mousePos].setBackground(Color.white);
+					grid[mousePos].setBackground(Color.gray);
 					grid[lastLoc].setBackground(Color.orange);
 					
 					mousePos = lastLoc;
