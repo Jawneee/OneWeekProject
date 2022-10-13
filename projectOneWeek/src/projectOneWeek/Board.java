@@ -31,6 +31,7 @@ public class Board {
 	JButton preset2;
 	JButton increase;
 	JButton decrease;
+	JButton resetSpeed;
 	Timer timer;
 
 	boolean mousePlaced;
@@ -75,6 +76,9 @@ public class Board {
 		decrease.setBackground(Color.red);
 		decrease.setText("<-- Decrease");
 		
+		resetSpeed=new JButton();
+		resetSpeed.setBackground(Color.orange);
+		resetSpeed.setText("Reset Speed");
 
 		clear = new JButton();
 		clear.setBackground(Color.lightGray);
@@ -159,8 +163,12 @@ public class Board {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				speed-=100;
-				timer.setDelay(speed);
+				if(speed>100) {
+					speed-=100;
+					timer.setDelay(speed);
+					System.out.println(speed);
+				}
+				
 				
 			}
 			
@@ -174,10 +182,24 @@ public class Board {
 				speed+=100;
 				timer.setDelay(speed);
 				
+				
 			}
 			
 		});
 		c.gridy=0;
+		
+		resetSpeed.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				speed=1000;
+				timer.setDelay(speed);
+				
+			}
+			
+		});
+		c.gridy=0;
+		
 		
 		
 		for (int i = 0; i < 400; i++) {
@@ -242,6 +264,7 @@ public class Board {
 		panel.add(mouseButton, c);
 		panel.add(decrease, c);
 		panel.add(increase, c);
+		panel.add(resetSpeed, c);
 	
 		frame.setContentPane(panel);
 		frame.setVisible(true);
