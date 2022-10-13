@@ -27,11 +27,11 @@ public class Board {
 	JButton preset2;
 
 	boolean mousePlaced;
-
-	ArrayList<Integer> lastPos = new ArrayList<Integer>();
+	int lastLoc;
 	Random r = new Random();
 
 	public Board() {
+		lastLoc = 0;
 		mouseToggle = false;
 		mousePlaced = false;
 
@@ -1182,6 +1182,7 @@ public class Board {
 				
 				
 				if(grid[mousePos+1].getName() == "tile" && grid[mousePos+1].getBackground() != Color.gray && grid[mousePos+20].getName() == "tile" && grid[mousePos+20].getBackground() != Color.gray&& grid[mousePos-20].getName() == "tile" && grid[mousePos-20].getBackground() != Color.gray) {
+					lastLoc = mousePos;
 					rand = r.nextInt(4);
 					System.out.println(rand);
 					if(rand == 1) {
@@ -1209,6 +1210,7 @@ public class Board {
 
 					
 				}else if(grid[mousePos+1].getName() == "tile" && grid[mousePos+1].getBackground() != Color.gray && grid[mousePos-20].getName() == "tile" && grid[mousePos-20].getBackground() != Color.gray) {
+					lastLoc = mousePos;
 					rand = r.nextInt(2);
 					System.out.println(rand);
 					if(rand == 1) {
@@ -1227,6 +1229,7 @@ public class Board {
 						mousePos = mousePos+m.up();
 					}
 				}else if(grid[mousePos+1].getName() == "tile" && grid[mousePos+1].getBackground() != Color.gray && grid[mousePos+20].getName() == "tile" && grid[mousePos+20].getBackground() != Color.gray) {
+					lastLoc = mousePos;
 					rand = r.nextInt(2);
 					System.out.println(rand);
 					if(rand == 1) {
@@ -1245,6 +1248,7 @@ public class Board {
 						mousePos = mousePos+m.down();
 					}
 				}else if(grid[mousePos+1].getName() == "tile" && grid[mousePos+1].getBackground() != Color.gray && grid[mousePos-1].getName() == "tile" && grid[mousePos-1].getBackground() != Color.gray) {
+					lastLoc = mousePos;
 					rand = r.nextInt(2);
 					System.out.println(rand);
 					if(rand == 1) {
@@ -1264,6 +1268,7 @@ public class Board {
 					}
 				}
 				if(grid[mousePos-1].getName() == "tile" && grid[mousePos-1].getBackground() != Color.gray && grid[mousePos+20].getName() == "tile" && grid[mousePos+20].getBackground() != Color.gray&& grid[mousePos-20].getName() == "tile" && grid[mousePos-20].getBackground() != Color.gray) {
+					lastLoc = mousePos;
 					rand = r.nextInt(3);
 					System.out.println(rand);
 					if(rand == 1) {
@@ -1290,11 +1295,14 @@ public class Board {
 					}
 				}
 				
-				
-				lastPos.add(mousePos);
-				if(lastPos.size()>1) {
-					lastPos.remove(0);
+				if(grid[mousePos-20].getBackground() == Color.BLACK && grid[mousePos-1].getBackground() == Color.BLACK && grid[mousePos+1].getBackground() == Color.BLACK) {
+					grid[mousePos].setBackground(Color.gray);
+					grid[lastLoc].setBackground(Color.orange);
+					mousePos = lastLoc;
+					grid[lastLoc].setBackground(Color.gray);
 				}
+				
+				
 				//System.out.println(lastPos);
 			}
 		}catch(ArrayIndexOutOfBoundsException e) {

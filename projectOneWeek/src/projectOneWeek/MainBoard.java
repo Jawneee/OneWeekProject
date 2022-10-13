@@ -29,7 +29,7 @@ public class MainBoard {
 		};
 		
 		
-		timer.schedule(task, 0 , 35);
+		timer.schedule(task, 0 , 750);
 		
 		
 	}
