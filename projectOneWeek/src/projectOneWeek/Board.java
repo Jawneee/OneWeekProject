@@ -1246,10 +1246,8 @@ public class Board {
 
 
 
-	public void keyReleased(KeyEvent e) {
-		m.stop();
 
-	}
+
 
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
