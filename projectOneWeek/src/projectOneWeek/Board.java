@@ -1414,13 +1414,6 @@ public class Board {
 						grid[mousePos].setBackground(Color.gray);
 						mousePos = mousePos+m.up();
 					}
-				}else if(grid[mousePos-1].getName() == "tile" && grid[mousePos-1].getBackground() != Color.gray) {
-					grid[mousePos].setBackground(Color.WHITE);
-					grid[mousePos].setName("tile");
-					grid[mousePos-1].setBackground(Color.ORANGE);
-					grid[mousePos-1].setName("mouse");
-					grid[mousePos].setBackground(Color.gray);
-					mousePos = mousePos+m.left();
 				}
 				
 				if(grid[mousePos+20].getName() == "tile" && grid[mousePos+20].getBackground() != Color.gray && grid[mousePos-20].getName() == "tile" && grid[mousePos-20].getBackground() != Color.gray) {
