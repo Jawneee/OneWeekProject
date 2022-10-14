@@ -1464,7 +1464,7 @@ public class Board {
 				}else {
 					
 				}
-				
+				//problem 3
 				//Systemasdasdasdasd
 				//System.out.println(lastPos);
 			}
