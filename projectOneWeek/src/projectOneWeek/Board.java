@@ -1472,7 +1472,7 @@ public class Board {
 					
 				}
 				
-				
+				//Systemasdasdasdasd
 				//System.out.println(lastPos);
 			}
 		}catch(ArrayIndexOutOfBoundsException e) {
