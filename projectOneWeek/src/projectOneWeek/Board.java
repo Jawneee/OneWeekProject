@@ -10,6 +10,9 @@ import java.util.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+
+
 
 public class Board {
 	String a = "\"\"";
@@ -270,6 +273,7 @@ public class Board {
 		frame.setVisible(true);
 
 	}
+
 
 	public void grayClear() {
 		for (int i = 0; i < grid.length; i++) {
