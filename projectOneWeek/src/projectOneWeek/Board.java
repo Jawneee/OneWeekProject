@@ -111,17 +111,38 @@ public class Board {
 			}
 
 		});
+		
 		user.addActionListener(new ActionListener() {
 
 			@Override
-			public void actionPerformed(ActionEvent e2) {
+			public void actionPerformed(ActionEvent e) {
 				frame.addKeyListener(new KeyAdapter() {
-
+				
+					public void keyPressed(KeyEvent e1) {
+						m.stop();
+				        int keyCode = e1.getKeyCode();
+				        if (keyCode == KeyEvent.VK_UP) {
+				          System.out.println("Up Arrrow-Key is pressed!");
+				        }
+				        else if (keyCode == KeyEvent.VK_DOWN) {
+				          System.out.println("Down Arrrow-Key is pressed!");
+				        }
+				        else if (keyCode == KeyEvent.VK_LEFT) {
+				          System.out.println("Left Arrrow-Key is pressed!");
+				        }
+				        else if (keyCode == KeyEvent.VK_RIGHT) {
+				        System.out.println("Right Arrrow-Key is pressed!");
+				        }
+				      }
+				    });
+					
+					
+			
+					
+				}
 				});
 
-			}
-
-		});
+		
 		grayClear.addActionListener(new ActionListener() {
 
 			@Override
@@ -1246,12 +1267,282 @@ public class Board {
 
 
 
+	public void moveMouse() {
+		int rand;
+		
+		
+		try {
+			if(mousePlaced) {
+				
+				if(grid[mousePos+1].getName() == "tile" && grid[mousePos+1].getBackground() != Color.gray) {
+					grid[mousePos].setBackground(Color.WHITE);
+					grid[mousePos].setName("tile");
+					grid[mousePos+1].setBackground(Color.ORANGE);
+					grid[mousePos+1].setName("mouse");
+					grid[mousePos].setBackground(Color.gray);
+					mousePos = mousePos+m.right();
+					
+				}else if(grid[mousePos-1].getName() == "tile" && grid[mousePos-1].getBackground() != Color.gray) {
+					grid[mousePos].setBackground(Color.WHITE);
+					grid[mousePos].setName("tile");
+					grid[mousePos+m.left()].setBackground(Color.ORANGE);
+					grid[mousePos+m.left()].setName("mouse");
+					grid[mousePos].setBackground(Color.gray);
+					mousePos = mousePos+m.left();
+				}else if(grid[mousePos-20].getName() == "tile" && grid[mousePos-20].getBackground() != Color.gray) {
+					grid[mousePos].setBackground(Color.WHITE);
+					grid[mousePos].setName("tile");
+					grid[mousePos+m.up()].setBackground(Color.ORANGE);
+					grid[mousePos+m.up()].setName("mouse");
+					grid[mousePos].setBackground(Color.gray);
+					mousePos = mousePos+m.up();
+				}else if(grid[mousePos+20].getName() == "tile" && grid[mousePos+20].getBackground() != Color.gray) {
+					grid[mousePos].setBackground(Color.WHITE);
+					grid[mousePos].setName("tile");
+					grid[mousePos+m.down()].setBackground(Color.ORANGE);
+					grid[mousePos+m.down()].setName("mouse");
+					grid[mousePos].setBackground(Color.gray);
+					mousePos = mousePos+m.down();
+				}
+				
+				if(grid[mousePos+1].getName() == "tile" && grid[mousePos+1].getBackground() != Color.gray && grid[mousePos+20].getName() == "tile" && grid[mousePos+20].getBackground() != Color.gray&& grid[mousePos-20].getName() == "tile" && grid[mousePos-20].getBackground() != Color.gray) {
+					lastLoc = mousePos;
+					rand = r.nextInt(3);
+					System.out.println(rand);
+					if(rand == 1) {
+						grid[mousePos].setBackground(Color.WHITE);
+						grid[mousePos].setName("tile");
+						grid[mousePos+1].setBackground(Color.ORANGE);
+						grid[mousePos+1].setName("mouse");
+						grid[mousePos].setBackground(Color.gray);
+						mousePos = mousePos+m.right();
+					}else if(rand == 0) {
+						grid[mousePos].setBackground(Color.WHITE);
+						grid[mousePos].setName("tile");
+						grid[mousePos+m.down()].setBackground(Color.ORANGE);
+						grid[mousePos+m.down()].setName("mouse");
+						grid[mousePos].setBackground(Color.gray);
+						mousePos = mousePos+m.down();
+					}else if(rand==2) {
+						grid[mousePos].setBackground(Color.WHITE);
+						grid[mousePos].setName("tile");
+						grid[mousePos+m.up()].setBackground(Color.ORANGE);
+						grid[mousePos+m.up()].setName("mouse");
+						grid[mousePos].setBackground(Color.gray);
+						mousePos = mousePos+m.up();
+					}
+
+					
+				}else if(grid[mousePos+1].getName() == "tile" && grid[mousePos+1].getBackground() != Color.gray && grid[mousePos-20].getName() == "tile" && grid[mousePos-20].getBackground() != Color.gray) {
+					lastLoc = mousePos;
+					rand = r.nextInt(2);
+					System.out.println(rand);
+					if(rand == 1) {
+						grid[mousePos].setBackground(Color.WHITE);
+						grid[mousePos].setName("tile");
+						grid[mousePos+1].setBackground(Color.ORANGE);
+						grid[mousePos+1].setName("mouse");
+						grid[mousePos].setBackground(Color.gray);
+						mousePos = mousePos+m.right();
+					}else if(rand == 0) {
+						grid[mousePos].setBackground(Color.WHITE);
+						grid[mousePos].setName("tile");
+						grid[mousePos+m.up()].setBackground(Color.ORANGE);
+						grid[mousePos+m.up()].setName("mouse");
+						grid[mousePos].setBackground(Color.gray);
+						mousePos = mousePos+m.up();
+					}
+				}else if(grid[mousePos+1].getName() == "tile" && grid[mousePos+1].getBackground() != Color.gray && grid[mousePos+20].getName() == "tile" && grid[mousePos+20].getBackground() != Color.gray) {
+					lastLoc = mousePos;
+					rand = r.nextInt(2);
+					System.out.println(rand);
+					if(rand == 1) {
+						grid[mousePos].setBackground(Color.WHITE);
+						grid[mousePos].setName("tile");
+						grid[mousePos+1].setBackground(Color.ORANGE);
+						grid[mousePos+1].setName("mouse");
+						grid[mousePos].setBackground(Color.gray);
+						mousePos = mousePos+m.right();
+					}else if(rand == 0) {
+						grid[mousePos].setBackground(Color.WHITE);
+						grid[mousePos].setName("tile");
+						grid[mousePos+m.down()].setBackground(Color.ORANGE);
+						grid[mousePos+m.down()].setName("mouse");
+						grid[mousePos].setBackground(Color.gray);
+						mousePos = mousePos+m.down();
+					}
+				}else if(grid[mousePos+1].getName() == "tile" && grid[mousePos+1].getBackground() != Color.gray && grid[mousePos-1].getName() == "tile" && grid[mousePos-1].getBackground() != Color.gray) {
+					lastLoc = mousePos;
+					rand = r.nextInt(2);
+					System.out.println(rand);
+					if(rand == 1) {
+						grid[mousePos].setBackground(Color.WHITE);
+						grid[mousePos].setName("tile");
+						grid[mousePos+1].setBackground(Color.ORANGE);
+						grid[mousePos+1].setName("mouse");
+						grid[mousePos].setBackground(Color.gray);
+						mousePos = mousePos+m.right();
+					}else if(rand == 0) {
+						grid[mousePos].setBackground(Color.WHITE);
+						grid[mousePos].setName("tile");
+						grid[mousePos+m.left()].setBackground(Color.ORANGE);
+						grid[mousePos+m.left()].setName("mouse");
+						grid[mousePos].setBackground(Color.gray);
+						mousePos = mousePos+m.left();
+					}
+				}else if(grid[mousePos+1].getName() == "tile" && grid[mousePos+1].getBackground() != Color.gray) {
+					grid[mousePos].setBackground(Color.WHITE);
+					grid[mousePos].setName("tile");
+					grid[mousePos+1].setBackground(Color.ORANGE);
+					grid[mousePos+1].setName("mouse");
+					grid[mousePos].setBackground(Color.gray);
+					mousePos = mousePos+m.right();
+				}
+				
+				
+				if(grid[mousePos-1].getName() == "tile" && grid[mousePos-1].getBackground() != Color.gray && grid[mousePos+20].getName() == "tile" && grid[mousePos+20].getBackground() != Color.gray&& grid[mousePos-20].getName() == "tile" && grid[mousePos-20].getBackground() != Color.gray) {
+					lastLoc = mousePos;
+					rand = r.nextInt(3);
+					System.out.println(rand);
+					if(rand == 1) {
+						grid[mousePos].setBackground(Color.WHITE);
+						grid[mousePos].setName("tile");
+						grid[mousePos-1].setBackground(Color.ORANGE);
+						grid[mousePos-1].setName("mouse");
+						grid[mousePos].setBackground(Color.gray);
+						mousePos = mousePos+m.left();
+					}else if(rand == 0) {
+						grid[mousePos].setBackground(Color.WHITE);
+						grid[mousePos].setName("tile");
+						grid[mousePos+m.down()].setBackground(Color.ORANGE);
+						grid[mousePos+m.down()].setName("mouse");
+						grid[mousePos].setBackground(Color.gray);
+						mousePos = mousePos+m.down();
+					}else if(rand==2) {
+						grid[mousePos].setBackground(Color.WHITE);
+						grid[mousePos].setName("tile");
+						grid[mousePos+m.up()].setBackground(Color.ORANGE);
+						grid[mousePos+m.up()].setName("mouse");
+						grid[mousePos].setBackground(Color.gray);
+						mousePos = mousePos+m.up();
+					}
+				}else if(grid[mousePos-1].getName() == "tile" && grid[mousePos-1].getBackground() != Color.gray && grid[mousePos-20].getName() == "tile" && grid[mousePos-20].getBackground() != Color.gray) {
+					lastLoc = mousePos;
+					rand = r.nextInt(2);
+					System.out.println(rand);
+					if(rand == 1) {
+						grid[mousePos].setBackground(Color.WHITE);
+						grid[mousePos].setName("tile");
+						grid[mousePos-1].setBackground(Color.ORANGE);
+						grid[mousePos-1].setName("mouse");
+						grid[mousePos].setBackground(Color.gray);
+						mousePos = mousePos+m.left();
+					}else if(rand == 0) {
+						grid[mousePos].setBackground(Color.WHITE);
+						grid[mousePos].setName("tile");
+						grid[mousePos+m.up()].setBackground(Color.ORANGE);
+						grid[mousePos+m.up()].setName("mouse");
+						grid[mousePos].setBackground(Color.gray);
+						mousePos = mousePos+m.up();
+					}
+				}else if(grid[mousePos-1].getName() == "tile" && grid[mousePos-1].getBackground() != Color.gray && grid[mousePos+20].getName() == "tile" && grid[mousePos+20].getBackground() != Color.gray) {
+					lastLoc = mousePos;
+					rand = r.nextInt(2);
+					System.out.println(rand);
+					if(rand == 1) {
+						grid[mousePos].setBackground(Color.WHITE);
+						grid[mousePos].setName("tile");
+						grid[mousePos-1].setBackground(Color.ORANGE);
+						grid[mousePos-1].setName("mouse");
+						grid[mousePos].setBackground(Color.gray);
+						mousePos = mousePos+m.left();
+					}else if(rand == 0) {
+						grid[mousePos].setBackground(Color.WHITE);
+						grid[mousePos].setName("tile");
+						grid[mousePos+m.down()].setBackground(Color.ORANGE);
+						grid[mousePos+m.down()].setName("mouse");
+						grid[mousePos].setBackground(Color.gray);
+						mousePos = mousePos+m.down();
+					}
+				}
+				
+				if(grid[mousePos+20].getName() == "tile" && grid[mousePos+20].getBackground() != Color.gray && grid[mousePos-20].getName() == "tile" && grid[mousePos-20].getBackground() != Color.gray) {
+					lastLoc = mousePos;
+					rand = r.nextInt(2);
+					System.out.println(rand);
+					if(rand == 1) {
+						grid[mousePos].setBackground(Color.WHITE);
+						grid[mousePos].setName("tile");
+						grid[mousePos-20].setBackground(Color.ORANGE);
+						grid[mousePos-20].setName("mouse");
+						grid[mousePos].setBackground(Color.gray);
+						mousePos = mousePos+m.up();
+					}else if(rand == 0) {
+						grid[mousePos].setBackground(Color.WHITE);
+						grid[mousePos].setName("tile");
+						grid[mousePos+20].setBackground(Color.ORANGE);
+						grid[mousePos+20].setName("mouse");
+						grid[mousePos].setBackground(Color.gray);
+						mousePos = mousePos+m.down();
+					}
+				}
+				
+				
+				
+				
+				if(grid[mousePos-20].getBackground() == Color.BLACK && grid[mousePos-1].getBackground() == Color.BLACK && grid[mousePos+1].getBackground() == Color.BLACK && grid[mousePos+20].getBackground() == Color.gray) {
+					grid[mousePos].setBackground(Color.gray);
+					grid[lastLoc].setBackground(Color.orange);
+					
+					mousePos = lastLoc;
+				}else if(grid[mousePos-20].getBackground() == Color.BLACK && grid[mousePos+1].getBackground() == Color.BLACK && grid[mousePos+20].getBackground() == Color.BLACK&& grid[mousePos-1].getBackground() == Color.gray) {
+					grid[mousePos].setBackground(Color.gray);
+					grid[lastLoc].setBackground(Color.orange);
+					
+					mousePos = lastLoc;
+					
+				}else if(grid[mousePos-20].getBackground() == Color.BLACK && grid[mousePos-1].getBackground() == Color.BLACK && grid[mousePos+20].getBackground() == Color.BLACK&& grid[mousePos+1].getBackground() == Color.gray) {
+					grid[mousePos].setBackground(Color.gray);
+					grid[lastLoc].setBackground(Color.orange);
+					
+					mousePos = lastLoc;
+				}else if(grid[mousePos+20].getBackground() == Color.BLACK && grid[mousePos-1].getBackground() == Color.BLACK && grid[mousePos+1].getBackground() == Color.BLACK&& grid[mousePos-20].getBackground() == Color.gray) {
+					grid[mousePos].setBackground(Color.gray);
+					grid[lastLoc].setBackground(Color.orange);
+					
+					mousePos = lastLoc;
+				}
+
+				//problem 3
+
+				
+				if(grid[mousePos-20].getBackground() == Color.gray && grid[mousePos-1].getBackground() == Color.gray && grid[mousePos+1].getBackground() == Color.gray) {
+					grayClear();
+				}else if(grid[mousePos-20].getBackground() == Color.gray && grid[mousePos+1].getBackground() == Color.gray && grid[mousePos+20].getBackground() == Color.gray) {
+					grayClear();
+				}else if(grid[mousePos-20].getBackground() == Color.gray && grid[mousePos-1].getBackground() == Color.gray && grid[mousePos+20].getBackground() == Color.gray) {
+					grayClear();
+				}else if(grid[mousePos+20].getBackground() == Color.gray && grid[mousePos-1].getBackground() == Color.gray && grid[mousePos+1].getBackground() == Color.gray) {
+					grayClear();
+				}
+				
+				
+
+				//Systemasdasdasdasd
+				//System.out.println(lastPos);
+			}
+		}catch(ArrayIndexOutOfBoundsException e) {
+			//System.out.println("Meep Moop");
+		}
+	}
+
+
 
 
 
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
-
+		
 		if (key == KeyEvent.VK_RIGHT) {
 			System.out.println("You have clicked the right arrow");
 			if (grid[mousePos + 1].getName() == "tile" && grid[mousePos + 1].getBackground() != Color.gray) {
@@ -1269,5 +1560,10 @@ public class Board {
 			}
 		}
 
+	}
+
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }
