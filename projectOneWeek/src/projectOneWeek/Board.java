@@ -10,8 +10,6 @@ import java.util.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-
 
 
 public class Board {
@@ -102,7 +100,6 @@ public class Board {
 					mouseButton.setBackground(Color.GREEN);
 					mouseToggle = true;
 				}
-
 			}
 
 		});
@@ -226,7 +223,7 @@ public class Board {
 
 				public void actionPerformed(ActionEvent e) {
 					int temp;
-
+					
 					temp = Integer.valueOf(e.getActionCommand());
 					if (mouseToggle == false) {
 						if (grid[temp].getName() == "tile") {
@@ -273,7 +270,9 @@ public class Board {
 		frame.setVisible(true);
 
 	}
-
+	public void placeCheese() {
+		
+	}
 
 	public void grayClear() {
 		for (int i = 0; i < grid.length; i++) {
