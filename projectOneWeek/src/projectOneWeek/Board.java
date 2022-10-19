@@ -351,7 +351,7 @@ public class Board {
 	 */
 	public void won() {
 		for (int i = 0; i < grid.length; i++) {
-			if (grid[i].getBackground() != Color.black && grid[i].getBackground() != Color.orange&& grid[i].getBackground() != Color.yellow) {
+			if (grid[i].getBackground() != Color.black && grid[i].getBackground() != Color.orange&& grid[i].getBackground() != Color.yellow && grid[i].getBackground() != Color.gray) {
 				grid[i].setName("tile");
 				grid[i].setBackground(Color.green);
 				
@@ -1299,7 +1299,7 @@ public class Board {
 
 
 	/**
-	 * moves mouse and checks dead ends. if dead end saves coordinate and trys a 
+	 * moves mouse and checks dead ends. if dead end saves coordinate and trys a new direction
 	 */
 	public void moveMouse() {
 		int rand;
@@ -1563,16 +1563,25 @@ public class Board {
 				}
 
 
-				//problem 3
 
 				
-				if(grid[mousePos-20].getBackground() == Color.gray && grid[mousePos-1].getBackground() == Color.gray && grid[mousePos+1].getBackground() == Color.gray) {
+				if(grid[mousePos-20].getBackground() == Color.gray && grid[mousePos-1].getBackground() == Color.gray && grid[mousePos+1].getBackground() == Color.gray && grid[mousePos+20].getBackground() == Color.black) {
 					grayClear();
-				}else if(grid[mousePos-20].getBackground() == Color.gray && grid[mousePos+1].getBackground() == Color.gray && grid[mousePos+20].getBackground() == Color.gray) {
+				}else if(grid[mousePos-20].getBackground() == Color.gray && grid[mousePos+1].getBackground() == Color.gray && grid[mousePos+20].getBackground() == Color.gray && grid[mousePos-1].getBackground() == Color.BLACK) {
 					grayClear();
-				}else if(grid[mousePos-20].getBackground() == Color.gray && grid[mousePos-1].getBackground() == Color.gray && grid[mousePos+20].getBackground() == Color.gray) {
+				}else if(grid[mousePos-20].getBackground() == Color.gray && grid[mousePos-1].getBackground() == Color.gray && grid[mousePos+20].getBackground() == Color.gray && grid[mousePos+1].getBackground() == Color.black) {
 					grayClear();
-				}else if(grid[mousePos+20].getBackground() == Color.gray && grid[mousePos-1].getBackground() == Color.gray && grid[mousePos+1].getBackground() == Color.gray) {
+				}else if(grid[mousePos+20].getBackground() == Color.gray && grid[mousePos-1].getBackground() == Color.gray && grid[mousePos+1].getBackground() == Color.gray && grid[mousePos-20].getBackground() == Color.black) {
+					grayClear();
+				}
+				
+				if(grid[mousePos+20].getBackground() == Color.gray && grid[mousePos-1].getBackground() == Color.gray && grid[mousePos+1].getBackground() == Color.black && grid[mousePos-20].getBackground() == Color.BLACK) {
+					grayClear();
+				}else if(grid[mousePos+1].getBackground() == Color.black && grid[mousePos+20].getBackground() == Color.BLACK && grid[mousePos-20].getBackground() == Color.black && grid[mousePos-1].getBackground() == Color.black) {
+					grayClear();
+				}else if(grid[mousePos-20].getBackground() == Color.gray && grid[mousePos-1].getBackground() == Color.gray && grid[mousePos+1].getBackground() == Color.black && grid[mousePos+20].getBackground() == Color.black) {
+					grayClear();
+				}else if(grid[mousePos-20].getBackground() == Color.gray && grid[mousePos+1].getBackground() == Color.gray && grid[mousePos-1].getBackground() == Color.black && grid[mousePos+20].getBackground() == Color.black) {
 					grayClear();
 				}
 				
@@ -1585,8 +1594,10 @@ public class Board {
 				
 				
 
+
 				//Systemasdasdasdasd
 				//System.out.println(lastPos);
+
 			}
 		}catch(ArrayIndexOutOfBoundsException e) {
 			//System.out.println("Meep Moop");
