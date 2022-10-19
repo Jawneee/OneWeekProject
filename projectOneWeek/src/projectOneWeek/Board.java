@@ -302,7 +302,9 @@ public class Board {
 		}
 		timer.stop();
 	}
-
+	/**
+	 * the hard maze
+	 */
 	public void preset1() {
 		
 		grid[370].setBackground(Color.BLACK);
@@ -763,7 +765,9 @@ public class Board {
 		grid[16].setName("Cheese");
 
 	}
-
+	/**
+	 * a easy maze
+	 */
 	public void preset2() {
 		grid[0].setBackground(Color.BLACK);
 		grid[0].setName("wall");
@@ -1234,7 +1238,9 @@ public class Board {
 
 
 	}
-
+	/**
+	 * moving
+	 */
 	public void moveMouse() {
 		int rand;
 		
