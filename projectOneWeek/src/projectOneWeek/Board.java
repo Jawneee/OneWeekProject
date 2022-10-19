@@ -1,6 +1,6 @@
 package projectOneWeek;
 /*
- * Mark, John, Chris Jordan
+ * Mark, John, Chris Jordan 
  */
 import java.util.ArrayList;
 import java.util.Random;
