@@ -1,5 +1,7 @@
 package projectOneWeek;
-
+/*
+ * Mark, John, Chris Jordan
+ */
 import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.*;
@@ -88,6 +90,9 @@ public class Board {
 		mouseButton = new JButton();
 		mouseButton.setBackground(Color.RED);
 		mouseButton.setText("Mouse");
+		/**
+		 * what happens when u toggle the mouse on and off to place it down
+		 */
 		mouseButton.addActionListener(new ActionListener() {
 
 			@Override
@@ -103,7 +108,9 @@ public class Board {
 			}
 
 		});
-
+		/**
+		 * clears the board of gray tiles more meant for testing purposes
+		 */
 		grayClear.addActionListener(new ActionListener() {
 
 			@Override
@@ -113,6 +120,9 @@ public class Board {
 			}
 
 		});
+		/**
+		 * Clears the whole board of everything 
+		 */
 		clear.addActionListener(new ActionListener() {
 
 			@Override
@@ -122,7 +132,9 @@ public class Board {
 			}
 
 		});
-
+		/**
+		 * A preset maze easier
+		 */
 		preset1.addActionListener(new ActionListener() {
 
 			@Override
@@ -133,7 +145,9 @@ public class Board {
 			}
 
 		});
-
+		/**
+		 * A preset maze 2 which is more complicatied 
+		 */
 		preset2.addActionListener(new ActionListener() {
 
 			@Override
@@ -145,7 +159,9 @@ public class Board {
 
 		});
 		
-		
+		/**
+		 * Timer button 
+		 */
 		timer = new Timer(speed, new ActionListener() {
 
 			@Override
@@ -158,7 +174,9 @@ public class Board {
 		});
 		timer.start();
 	
-		
+		/**
+		 * increasing the timer speed
+		 */
 		increase.addActionListener(new ActionListener() {
 
 			@Override
@@ -174,7 +192,9 @@ public class Board {
 			
 		});
 		c.gridy=0;
-		
+		/**
+		 * decreasing the timer speed
+		 */
 		decrease.addActionListener(new ActionListener() {
 
 			@Override
@@ -187,7 +207,9 @@ public class Board {
 			
 		});
 		c.gridy=0;
-		
+		/**
+		 * resets the timer speed
+		 */
 		resetSpeed.addActionListener(new ActionListener() {
 
 			@Override
@@ -218,7 +240,10 @@ public class Board {
 			grid[i].setBackground(Color.white);
 			grid[i].setName("tile");
 			panel.add(grid[i], c);
-
+			
+			/**
+			 * Sets up the button board
+			 */
 			grid[i].addActionListener(new ActionListener() {
 
 				public void actionPerformed(ActionEvent e) {
@@ -270,10 +295,10 @@ public class Board {
 		frame.setVisible(true);
 
 	}
-	public void placeCheese() {
-		
-	}
 
+	/**
+	 * Clears the gray tiles on the board
+	 */
 	public void grayClear() {
 		for (int i = 0; i < grid.length; i++) {
 			if (grid[i].getBackground() == Color.gray) {
@@ -282,7 +307,9 @@ public class Board {
 			}
 		}
 	}
-
+	/**
+	 * Clears the board from everything
+	 */
 	public void clearBoard() {
 		for (int i = 0; i < grid.length; i++) {
 			grid[i].setName("tile");
@@ -291,7 +318,9 @@ public class Board {
 		}
 
 	}
-	
+	/**
+	 * what happens when you get to the end of the maze
+	 */
 	public void won() {
 		for (int i = 0; i < grid.length; i++) {
 			if (grid[i].getBackground() != Color.black && grid[i].getBackground() != Color.orange&& grid[i].getBackground() != Color.yellow && grid[i].getBackground() != Color.gray) {
@@ -302,7 +331,9 @@ public class Board {
 		}
 		timer.stop();
 	}
-
+	/**
+	 * preset maze 1
+	 */
 	public void preset1() {
 		
 		grid[370].setBackground(Color.BLACK);
@@ -764,6 +795,9 @@ public class Board {
 
 	}
 
+	/**
+	 * preset maze 2
+	 */
 	public void preset2() {
 		grid[0].setBackground(Color.BLACK);
 		grid[0].setName("wall");
@@ -1235,6 +1269,9 @@ public class Board {
 
 	}
 
+	/**
+	 * movement of the mouse
+	 */
 	public void moveMouse() {
 		int rand;
 		
@@ -1469,7 +1506,9 @@ public class Board {
 				}else if(grid[mousePos-20].getBackground() == Color.yellow) {
 					won();
 				}
-				
+				/**
+				 * what happens if the mouse wins 
+				 */
 				if(win==false) {
 					if(grid[mousePos-20].getBackground() == Color.BLACK && grid[mousePos-1].getBackground() == Color.BLACK && grid[mousePos+1].getBackground() == Color.BLACK && grid[mousePos+20].getBackground() == Color.gray) {
 						grid[mousePos].setBackground(Color.gray);
