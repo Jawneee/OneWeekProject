@@ -88,6 +88,7 @@ public class Board {
 		mouseButton = new JButton();
 		mouseButton.setBackground(Color.RED);
 		mouseButton.setText("Mouse");
+		//toggles mouse placement
 		mouseButton.addActionListener(new ActionListener() {
 
 			@Override
@@ -103,7 +104,7 @@ public class Board {
 			}
 
 		});
-
+		//clears all gray colors
 		grayClear.addActionListener(new ActionListener() {
 
 			@Override
@@ -113,6 +114,7 @@ public class Board {
 			}
 
 		});
+		//clears EVERYTHING in board
 		clear.addActionListener(new ActionListener() {
 
 			@Override
@@ -145,7 +147,7 @@ public class Board {
 
 		});
 		
-		
+		//starts timer and movement
 		timer = new Timer(speed, new ActionListener() {
 
 			@Override
@@ -158,7 +160,7 @@ public class Board {
 		});
 		timer.start();
 	
-		
+		//increase speed
 		increase.addActionListener(new ActionListener() {
 
 			@Override
@@ -174,7 +176,7 @@ public class Board {
 			
 		});
 		c.gridy=0;
-		
+		//decrease speed
 		decrease.addActionListener(new ActionListener() {
 
 			@Override
@@ -187,7 +189,7 @@ public class Board {
 			
 		});
 		c.gridy=0;
-		
+		//reset to 1000 speed
 		resetSpeed.addActionListener(new ActionListener() {
 
 			@Override
@@ -201,7 +203,7 @@ public class Board {
 		c.gridy=0;
 		
 		
-		
+		//creates a grid layout
 		for (int i = 0; i < 400; i++) {
 			if (i == 20 || i == 40 || i == 60 || i == 80 || i == 100 || i == 120 || i == 140 || i == 160 || i == 180
 					|| i == 200 || i == 220 || i == 240 || i == 260 || i == 280 || i == 300 || i == 320 || i == 340
@@ -229,6 +231,7 @@ public class Board {
 						if (grid[temp].getName() == "tile") {
 							grid[temp].setBackground(Color.BLACK);
 							grid[temp].setName("wall");
+							//prints out what we pressed in a way so we can just copy paste and easily make presets
 							System.out.println("grid["+temp+"].setBackground(Color.BLACK);");
 							System.out.println("grid["+temp+"].setName(\"wall\");");
 						} else if (grid[temp].getName() == "wall") {
@@ -273,7 +276,9 @@ public class Board {
 	public void placeCheese() {
 		
 	}
-
+	/**
+	 * Clear gray
+	 */
 	public void grayClear() {
 		for (int i = 0; i < grid.length; i++) {
 			if (grid[i].getBackground() == Color.gray) {
@@ -282,7 +287,9 @@ public class Board {
 			}
 		}
 	}
-
+	/**
+	 * clear all
+	 */
 	public void clearBoard() {
 		for (int i = 0; i < grid.length; i++) {
 			grid[i].setName("tile");
@@ -291,7 +298,9 @@ public class Board {
 		}
 
 	}
-	
+	/**
+	 * when win stop everything and make all unexplored tiles green
+	 */
 	public void won() {
 		for (int i = 0; i < grid.length; i++) {
 			if (grid[i].getBackground() != Color.black && grid[i].getBackground() != Color.orange&& grid[i].getBackground() != Color.yellow && grid[i].getBackground() != Color.gray) {
@@ -1249,6 +1258,7 @@ public class Board {
 			if(mousePlaced) {
 				
 				if(win==false) {
+					//These are the simple movements, left up and down
 					if(grid[mousePos+1].getName() == "tile" && grid[mousePos+1].getBackground() != Color.gray) {
 						grid[mousePos].setBackground(Color.WHITE);
 						grid[mousePos].setName("tile");
@@ -1280,7 +1290,7 @@ public class Board {
 						mousePos = mousePos+m.down();
 					}
 				}
-				
+				//all of these are the two way, three way, for all different types of combinations
 				if(grid[mousePos+1].getName() == "tile" && grid[mousePos+1].getBackground() != Color.gray && grid[mousePos+20].getName() == "tile" && grid[mousePos+20].getBackground() != Color.gray&& grid[mousePos-20].getName() == "tile" && grid[mousePos-20].getBackground() != Color.gray) {
 					lastLoc = mousePos;
 					rand = r.nextInt(3);
@@ -1475,7 +1485,7 @@ public class Board {
 				}else if(grid[mousePos-20].getBackground() == Color.yellow) {
 					won();
 				}
-				
+				//this teleports back to where the two way starts.
 				if(win==false) {
 					if(grid[mousePos-20].getBackground() == Color.BLACK && grid[mousePos-1].getBackground() == Color.BLACK && grid[mousePos+1].getBackground() == Color.BLACK && grid[mousePos+20].getBackground() == Color.gray) {
 						grid[mousePos].setBackground(Color.gray);
@@ -1502,7 +1512,7 @@ public class Board {
 				}
 
 
-				//asd
+				//when it gets surrounded by gray and black, itll clear
 				if(grid[mousePos-20].getBackground() == Color.gray && grid[mousePos-1].getBackground() == Color.gray && grid[mousePos+1].getBackground() == Color.gray && grid[mousePos+20].getBackground() == Color.black) {
 					grayClear();
 				}else if(grid[mousePos-20].getBackground() == Color.gray && grid[mousePos+1].getBackground() == Color.gray && grid[mousePos+20].getBackground() == Color.gray && grid[mousePos-1].getBackground() == Color.BLACK) {
