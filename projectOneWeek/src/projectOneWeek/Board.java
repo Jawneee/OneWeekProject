@@ -1,7 +1,7 @@
 package projectOneWeek;
 /*
  * John Abellera, Chris Loewen, Jordan Yan and Mark Abrams
- * 
+ * october 17,2022
  * mouse maze that moves accordingly to open spaces and can intelligently choose where to go.
  */
 
@@ -34,7 +34,7 @@ public class Board {
 	JLabel label;
 	JButton[] grid;
 	boolean mouseToggle;
-	JButton user;
+	
 	JButton mouseButton;
 	JButton clear;
 	JButton grayClear;
@@ -68,9 +68,7 @@ public class Board {
 		GridBagConstraints c = new GridBagConstraints();
 
 		grid = new JButton[400];
-		user = new JButton();
-		user.setText("USER_CONTROL");
-		user.setBackground(Color.gray);
+		
 		String[] ac = new String[400];
 		preset1 = new JButton();
 		preset1.setBackground(Color.gray);
@@ -309,7 +307,7 @@ public class Board {
 
 		}
 
-		panel.add(user, c);
+		
 
 		panel.add(grayClear);
 		panel.add(preset2);
