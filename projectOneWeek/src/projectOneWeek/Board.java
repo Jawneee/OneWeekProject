@@ -1496,7 +1496,7 @@ public class Board {
 				}
 
 
-				
+				//asd
 				if(grid[mousePos-20].getBackground() == Color.gray && grid[mousePos-1].getBackground() == Color.gray && grid[mousePos+1].getBackground() == Color.gray && grid[mousePos+20].getBackground() == Color.black) {
 					grayClear();
 				}else if(grid[mousePos-20].getBackground() == Color.gray && grid[mousePos+1].getBackground() == Color.gray && grid[mousePos+20].getBackground() == Color.gray && grid[mousePos-1].getBackground() == Color.BLACK) {
@@ -1512,6 +1512,10 @@ public class Board {
 				}else if(grid[mousePos+1].getBackground() == Color.black && grid[mousePos+20].getBackground() == Color.BLACK && grid[mousePos-20].getBackground() == Color.black && grid[mousePos-1].getBackground() == Color.black) {
 					grayClear();
 				}
+				
+				if(grid[mousePos-1].getBackground() == Color.gray && grid[mousePos-20].getBackground() == Color.gray && grid[mousePos+20].getBackground() == Color.black && grid[mousePos+1].getBackground() == Color.black) {
+					grayClear();
+				}else if(grid[mousePos+1].getBackground() == Color.gray && grid[mousePos-20].getBackground() == Color.gray && grid[mousePos+20].getBackground() == Color.black && grid[mousePos-1].getBackground() == Color.black)
 				
 				if(grid[mousePos+20].getBackground() == Color.gray && grid[mousePos-20].getBackground() == Color.gray && grid[mousePos+1].getBackground() == Color.black && grid[mousePos-1].getBackground() == Color.black) {
 					grayClear();
